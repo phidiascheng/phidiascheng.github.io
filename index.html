@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Save Text File</title>
+</head>
+
+
+
+<body>
+    <h1>Save Text File Without Blob</h1>
+    <textarea id="textInput" rows="10" cols="50" placeholder="Type your text here..."></textarea>
+    <br>
+    <button id="saveButton">Save as File</button>
+
+    <script>
+        document.getElementById('saveButton').addEventListener('click', function () {
+        // Get the text from the textarea
+        const text = document.getElementById('textInput').value;
+
+        // Create a data URL with the text content
+        const dataUrl = 'data:text/plain;charset=utf-8,' + encodeURIComponent(text);
+
+        // Create a hidden <a> element
+        const link = document.createElement('a');
+        link.href = dataUrl;
+        console.log(dataUrl)
+        link.download = 'myfile.txt'; // Default file name
+
+        // Trigger the download
+        link.click();
+        });
+    </script>
+</body>
+
+
+
+</html>
