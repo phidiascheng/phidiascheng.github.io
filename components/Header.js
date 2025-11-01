@@ -243,7 +243,7 @@ function HRight({id:id}){
 
     const tags = [  {name:"首页", link:"/"}, 
                     {name:"博客 ", link:"blog"},
-                    {name:"关于我", link:"about"}, 
+                    // {name:"关于我", link:"about"}, 
                     {name:"课程表", link:"schedual"},
                     {name:"练习", link:"work"}
                 ];
@@ -375,7 +375,7 @@ function SidebarAndShelter({style:propStyle, onClick:siderbarSwitcher}){
 
     const tags = [  { label: '首页', link: '' },
                     { label: '博客', link: 'blog' },
-                    { label: '关于我', link: 'about' },
+                    // { label: '关于我', link: 'about' },
                     { label: '课程表', link: 'schedual' },
                     { label: '练习', link: 'work' },
                 ]

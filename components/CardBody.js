@@ -235,10 +235,11 @@ function Home() {
             <a><h2 className="card-title">I'm Cheyenne.</h2></a>
             <div className="card-date">Nice to meet you.</div>
             <div className="card-text">
-                <p>HOME PAGE</p>
+                <p>我的英文名叫Cheyenne，我来自重庆，我在四川外国语大学九龙坡区附属小学上二年级。</p>
+                <img src="./data/img/aboutme.JPG" alt="Quiet" />
             </div>
         </div>
-        <div className="page"><div><a href="/">[返回博客]</a></div></div>
+        {/* <div className="page"><div><a href="/">[返回博客]</a></div></div> */}
     </React.Fragment>
     );
 }

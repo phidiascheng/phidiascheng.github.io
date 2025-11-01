@@ -16,7 +16,7 @@ function App() {
             <Switch>
 
                 <Route path="/" exact render={() => <SubView id='/' />}/>
-                <Route path="/about" exact render={() => <SubView id='about' />}/>
+                {/* <Route path="/about" exact render={() => <SubView id='about' />}/> */}
                 <Route path="/schedual" exact render={() => <SubView id='schedual' />}/>
                 <Route path="/work" exact render={() => <SubView id='work' />}/>
 
