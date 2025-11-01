@@ -110,6 +110,7 @@ function CardBody({id:id}){
                             }
                             li {
                                 color: Maroon;
+                                list-style-position: inside;
                             }
                         }
                         .card-text-indented{
