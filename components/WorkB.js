@@ -172,6 +172,8 @@ function Vocabulary(){
         })
     },[]);
 
+    const musicWrong = new Audio('./data/audio/wrong.m4a');
+    const musicRight = new Audio('./data/audio/right.m4a');
 
     /* -------------------------------- */
 
@@ -270,12 +272,10 @@ function Vocabulary(){
             });
         }
         else if (type == 'wrong'){
-            const music = new Audio('./data/audio/wrong.m4a');
-            music.play();
+            musicWrong.play();
         }
         else if (type == 'right'){
-            const music = new Audio('./data/audio/right.m4a');
-            music.play();
+            musicRight.play();
         }
     }
 
