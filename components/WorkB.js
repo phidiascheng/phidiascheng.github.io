@@ -272,10 +272,20 @@ function Vocabulary(){
             });
         }
         else if (type == 'wrong'){
-            musicWrong.play();
+            // musicWrong.play();
+            const audioPlayer = document.getElementById('wrongPlayer');
+            audioPlayer.load();
+            audioPlayer.play().catch(error => {
+                // console.error('播放音频时出错:', error);
+            });
         }
         else if (type == 'right'){
-            musicRight.play();
+            // musicRight.play();
+            const audioPlayer = document.getElementById('rightPlayer');
+            audioPlayer.load();
+            audioPlayer.play().catch(error => {
+                // console.error('播放音频时出错:', error);
+            });
         }
     }
 
@@ -502,6 +512,8 @@ function Vocabulary(){
                 { expList }
                 
                 <div><audio id="audioPlayer"></audio></div>
+                <div><audio id="wrongPlayer" preload="auto" src="./data/audio/wrong.m4a"></audio></div>
+                <div><audio id="rightPlayer" preload="auto" src="./data/audio/right.m4a"></audio></div>
             </div>
             <div id="statistics"></div>
             <div id="progressBar"></div>
