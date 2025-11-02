@@ -274,7 +274,7 @@ function Vocabulary(){
         else if (type == 'wrong'){
             // musicWrong.play();
             const audioPlayer = document.getElementById('wrongPlayer');
-            audioPlayer.load();
+            // audioPlayer.load();
             audioPlayer.play().catch(error => {
                 // console.error('播放音频时出错:', error);
             });
@@ -282,7 +282,7 @@ function Vocabulary(){
         else if (type == 'right'){
             // musicRight.play();
             const audioPlayer = document.getElementById('rightPlayer');
-            audioPlayer.load();
+            // audioPlayer.load();
             audioPlayer.play().catch(error => {
                 // console.error('播放音频时出错:', error);
             });
