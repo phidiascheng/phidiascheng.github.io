@@ -398,19 +398,19 @@ function Vocabulary(){
 
     function checkAnswer(){
         if (chosedAnswer == correctAnswer){
+            playAudio('right')
             words[currentIndex][2] = String( +words[currentIndex][2] + 1 )
             words[currentIndex][4] = +(words[currentIndex][4]) + 1
             document.getElementById("exp"+chosedAnswer+"Mark").innerText += "✓"
             document.getElementById(chosedAnswer).classList.add('correct')
-            playAudio('right')
         } 
         else {
+            playAudio('wrong')
             words[currentIndex][3] = String( +words[currentIndex][3] + 1 )
             words[currentIndex][4] = 0
             document.getElementById("exp"+chosedAnswer+"Mark").innerText = "✗"
             document.getElementById(chosedAnswer).classList.add('wrong')
             document.getElementById(correctAnswer).classList.add('correct')
-            playAudio('wrong')
         }
         isAnswerChecked = true
     }
