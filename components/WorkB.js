@@ -172,9 +172,6 @@ function Vocabulary(){
         })
     },[]);
 
-    const musicWrong = new Audio('./data/audio/wrong.m4a');
-    const musicRight = new Audio('./data/audio/right.m4a');
-
     /* -------------------------------- */
 
     let words = [];
@@ -187,6 +184,9 @@ function Vocabulary(){
 
     const options = ['A','B', 'C', 'D']
     let fileName = ''
+
+
+    /* -------------------------------- */
 
 
     function readFile(){
@@ -216,6 +216,8 @@ function Vocabulary(){
         }
     }
 
+
+    /* -------------------------------- */
 
     function shuffleArray(arr) {
         arr.sort(function (a, b) {
@@ -260,6 +262,9 @@ function Vocabulary(){
         }
     }
 
+    
+    /*-----------------------------------------------------------------*/
+
 
     function playAudio(type){
         if(type == 'word'){
@@ -272,22 +277,21 @@ function Vocabulary(){
             });
         }
         else if (type == 'wrong'){
-            // musicWrong.play();
             const audioPlayer = document.getElementById('wrongPlayer');
-            // audioPlayer.load();
             audioPlayer.play().catch(error => {
                 // console.error('播放音频时出错:', error);
             });
         }
         else if (type == 'right'){
-            // musicRight.play();
             const audioPlayer = document.getElementById('rightPlayer');
-            // audioPlayer.load();
             audioPlayer.play().catch(error => {
                 // console.error('播放音频时出错:', error);
             });
         }
     }
+
+
+    /*-----------------------------------------------------------------*/
 
 
     function resetState(){
@@ -306,6 +310,9 @@ function Vocabulary(){
             document.getElementById(i).classList = 'exp'
         }
     }
+
+
+    /*-----------------------------------------------------------------*/
 
 
     function display(){
@@ -335,6 +342,7 @@ function Vocabulary(){
         playAudio('word')
     }
 
+    /*-----------------------------------------------------------------*/    
 
     function keydownListerner(event){
         if ( isFileReady ){
@@ -366,6 +374,8 @@ function Vocabulary(){
         }
     }
 
+    /*-----------------------------------------------------------------*/    
+
     function wheelListerner(event){
         if (isFileReady){
             if (event.deltaY > 0){
@@ -381,12 +391,14 @@ function Vocabulary(){
         }
     }
 
+    /*-----------------------------------------------------------------*/    
+
     function resizeListerner(){
         console.log('resized')
         display()
     }
 
-
+    /*-----------------------------------------------------------------*/
 
     function optionClick(){
         if( isFileReady ){
@@ -399,11 +411,16 @@ function Vocabulary(){
         }
     }
 
+    /*-----------------------------------------------------------------*/    
+
     function optionMouseMove(i){
         if( isFileReady ){
            moveTo(i)
         }
     }
+
+
+    /*-----------------------------------------------------------------*/    
 
 
     function checkAnswer(){
@@ -477,8 +494,7 @@ function Vocabulary(){
     }
 
 
-
-
+    /*-----------------------------------------------------------------*/
 
 
     const expList = [0,1,2,3].map(i => 
@@ -495,6 +511,10 @@ function Vocabulary(){
             </span>
         </div>
     )
+
+
+    /*-----------------------------------------------------------------*/
+
 
     return (
     <div class="card-display">
