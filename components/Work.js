@@ -22,7 +22,7 @@ function Clock(){
                     border-radius: 8px;
                     width: 200px; 
                     height: 40px; 
-                    font-family: "STKai"; 
+                    font-family: serif; 
                     font-size: 26px;
                     margin: 20px;
                     background-color: aliceblue;
@@ -190,14 +190,17 @@ function Pdfsheets(){
                 label{
                     font-size: 20px;
                     line-height: 0px;
-                    font-family: "STKai","PingFang","OpenSans","SimHei","STHei";
+                    font-family: serif;
+                    span{
+                        font-family: sans-serif;
+                    }
                 }
                 .inputtext{
                     border: solid; 
                     border-width: 1px; 
                     border-radius: 15px;
                     border-color: rgb(241, 148, 104);
-                    font-family: "STKai"; 
+                    font-family: serif; 
                     font-size: 30px;
                     text-align: center;
                     margin: 10px 0;
@@ -208,7 +211,7 @@ function Pdfsheets(){
                     border-radius: 8px;
                     width: 150px; 
                     height: 30px; 
-                    font-family: "STKai"; 
+                    font-family: serif; 
                     font-size: 26px;
                     margin: 10px;
                     background-color: aliceblue;
@@ -625,7 +628,7 @@ function Bishunsheet(){
                 max-width: 100%;
                 text-align: center; 
                 .label{
-                    font-family: "STKai"; 
+                    font-family: serif; 
                     font-size: 30px;
                 }
                 .inputtext{
@@ -633,7 +636,7 @@ function Bishunsheet(){
                     border-width: 1px; 
                     border-radius: 15px;
                     border-color: rgb(241, 148, 104);
-                    font-family: "STKai"; 
+                    font-family: serif; 
                     font-size: 40px;
                     text-align: center;
                     margin: 10px 0;
@@ -644,7 +647,7 @@ function Bishunsheet(){
                     border-radius: 8px;
                     width: 150px; 
                     height: 40px; 
-                    font-family: "STKai"; 
+                    font-family: serif; 
                     font-size: 26px;
                     margin: 10px;
                     background-color: aliceblue;
@@ -873,7 +876,7 @@ function Dict(){
                     text-align: center; 
                     margin-top: -30px;
                     label{
-                        font-family: "STKai"; 
+                        font-family: serif; 
                         font-size: 36px;
                     }
                     .inputtext{
@@ -882,7 +885,7 @@ function Dict(){
                         border-radius: 15px;
                         border-color: rgb(241, 148, 104);
                         font-size: 36px;
-                        font-family: "Times New Roman","STKai";
+                        font-family: serif;
                         text-align: center;
                         margin: 10px 0;
                     }
@@ -892,7 +895,7 @@ function Dict(){
                         border-radius: 8px;
                         width: 100px; 
                         height: 40px; 
-                        font-family: "STKai"; 
+                        font-family: serif; 
                         font-size: 28px;
                         background-color: aliceblue;
                         &:active{
@@ -928,7 +931,7 @@ function Dict(){
                         border-color: rgb(241, 148, 104);
                         li{
                             list-style-type: none;
-                            font-family: "STKai";
+                            font-family: serif;
                         }
                         li+li{
                             margin-top: 20px;
@@ -937,7 +940,7 @@ function Dict(){
                             font-style: italic;
                             font-size: 20px;
                             color: red;
-                            font-family: Arial, Helvetica, sans-serif;
+                            font-family: sans-serif;
                         }
                     }
                 }
@@ -946,7 +949,7 @@ function Dict(){
                     ul{
                         li{
                             list-style-type: none;
-                            font-family: "STKai";
+                            font-family: serif;
                         }
                         li+li{
                             margin-top: 10px;
@@ -1142,7 +1145,7 @@ function Bishun(){
                         border-radius: 15px;
                         border-color: rgb(241, 148, 104);
                         width:450px; 
-                        font-family: "STKai"; 
+                        font-family: serif; 
                         font-size: 60px;
                         text-align: center;
                         margin: 10px 0px 20px 0px;
@@ -1153,7 +1156,7 @@ function Bishun(){
                         border-radius: 8px;
                         width: 100px; 
                         height: 50px; 
-                        font-family: "STKai"; 
+                        font-family: serif; 
                         font-size: 30px;
                         background-color: aliceblue;
                         &:active{
@@ -1169,7 +1172,7 @@ function Bishun(){
                         margin-left: 50px;
                         list-style: square;
                         li{
-                            font-family: "pinyin","SimSun";
+                            font-family: serif;
                             font-size: 22px;
                         }
                         .words{
@@ -1179,19 +1182,19 @@ function Bishun(){
                                 list-style: circle;
                             }
                             .wordbox{
-                                font-family: "pinyin","STKai";
+                                font-family: sans-serif;
                                 font-size: 22px;
                                 color: rgb(255, 17, 0);
                                 flex-shrink: 0;
                             }
                             .textbox{
-                                font-family: "pinyin","SimSun";
+                                font-family: serif;
                                 font-size: 20px;
                             }
                         }
                     }
                     .pinyinbox{
-                        font-family: "pinyin";
+                        font-family: "pinyin" ;
                         font-size: 26px;
                         color: rgb(47, 51, 255);
                     }

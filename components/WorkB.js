@@ -31,13 +31,13 @@ function Vocabulary(){
                     text-align: left;
                     width: 5em;
                     font-size: 8.5pt;
-                    font-family: 'arial';
+                    font-family: sans-serif;
                 }
             }
             #wordBox {
                 display: block;
                 height: calc(100vh - 53px - 20px - 5px);
-                font-family: 'Times New Roman', Times, serif;
+                font-family: serif;
                 #word {
                     -webkit-user-select: none;
                     height: calc((100vh - 53px - 20px - 5px)*0.3);
@@ -52,7 +52,7 @@ function Vocabulary(){
                         color: #d62626;
                         position:relative;
                         top: 0em;
-                        font-family:  'Times New Roman', Times, serif;
+                        font-family: serif;
                     }
                     .wordScroll {
                         display: inline-block;
@@ -82,7 +82,7 @@ function Vocabulary(){
                         text-align: center;
                         min-width: 1em;
                         .optLabel{
-                            font-family: 'Courier New', "SimSun";
+                            font-family: 'Courier New';
                             position: relative;
                             top: -3vh;
                         }
@@ -95,7 +95,7 @@ function Vocabulary(){
                         .optText{
                             position: relative;
                             top: -2vh;
-                            font-family: "SimSun";
+                            font-family: serif;
                             font-size: calc((100vh - 53px - 20px - 5px)*0.12);
                         }
                         .expScroll {
@@ -112,7 +112,7 @@ function Vocabulary(){
 /*                         mask-image: linear-gradient(90deg, transparent, black 5%); */
                     }
                     .optionMark{
-                        font-family: "SimSun";
+                        font-family: serif;
                         font-size: calc((100vh - 53px - 20px - 5px)*0.16);
                         position: relative;
                         color: red;
@@ -139,6 +139,10 @@ function Vocabulary(){
             text-align: left;
             display: none; 
             padding: 0 3vw;
+            span{
+                font-family: serif;
+                font-size: 7vh;
+            }
             @media (max-width:  1200px){
                 padding: 0;
             }
@@ -453,21 +457,21 @@ function Vocabulary(){
         document.getElementById("statistics").style.display = 'block'
         document.getElementById("progressBar").style.display = 'none'
         let fontSize = 7
-        document.getElementById("statistics").innerHTML = `<span style='font-size: ${fontSize}vh; font-family:"SimSun"'>错误的单词有：</span><br>`
+        document.getElementById("statistics").innerHTML = `<span>错误的单词有：</span><br>`
         for( let i = 0; i < currentInd; i++){
             if( words[i][4] == 0 ){
-                document.getElementById("statistics").innerHTML += `<span style="font-size: ${fontSize}vh; color: red; font-family:'Times New Roman'">${words[i][0]}、</span>`
+                document.getElementById("statistics").innerHTML += `<span style="color: red">${words[i][0]}、</span>`
             }
         }
-        document.getElementById("statistics").innerHTML += `<br><br><br><br><span style='font-size: ${fontSize}vh; font-family:"SimSun"'>正确的单词有：</span><br>`
+        document.getElementById("statistics").innerHTML += `<br><br><br><br><span>正确的单词有：</span><br>`
         for( let i = 0; i < currentInd; i++){
             if( words[i][4] > 0 ){
-                document.getElementById("statistics").innerHTML += `<span style="font-size: ${fontSize}vh; color: green;font-family:'Times New Roman'">${words[i][0]}、</span>`
+                document.getElementById("statistics").innerHTML += `<span style="color: green">${words[i][0]}、</span>`
             }
         }
-        document.getElementById("statistics").innerHTML += `<br><br><br><br><span style='font-size: ${fontSize}vh; font-family:"SimSun"'>没做的单词有：</span><br>`
+        document.getElementById("statistics").innerHTML += `<br><br><br><br><span>没做的单词有：</span><br>`
         for( let i = currentInd; i < words.length; i++){
-            document.getElementById("statistics").innerHTML += `<span style="font-size: 4vh; color: black; font-family:'Times New Roman'">${words[i][0]}、</span>`
+            document.getElementById("statistics").innerHTML += `<span style="color: black">${words[i][0]}、</span>`
         }
     }
 

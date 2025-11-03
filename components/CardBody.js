@@ -318,19 +318,19 @@ function Schedual() {
                         display: flex;
                         justify-content: center;
                         &:first-child td{
-                            font-family: "PingFang";
+                            font-family: sans-serif;
                         }
                         td {
                             display: flex;
                             justify-content: center;
                             text-align: center;
                             padding: 10px;
-                            font-family: "STKai";
+                            font-family: serif;
                             flex: 0 0 auto;
                             width: 120px;
                             line-height: 25px;
                             span {
-                                font-family: "STKai";
+                                font-family: serif;
                             }
                             .semihided{
                                 color: lightgray;
@@ -359,7 +359,7 @@ function Schedual() {
                         div {
                             display: flex;
                             justify-content: center;
-                            font-family: "STKai";
+                            font-family: serif;
                             .blink {
                                 width: 6px;
                                 height: 6px;
