@@ -24,16 +24,17 @@ function Blog({id: id}) {
     let match = useRouteMatch();
 
     return postsPerPage == 0 ? '' : (
-        <Switch>
-            <Route  
-                path={`${match.path}/:type/:id`}>
-                <Post postIds={postIds} postsPerPage={postsPerPage} />
-            </Route>
-            <Route  
-                path={`/`}>
-                <Post postIds={postIds} postsPerPage={postsPerPage} />
-            </Route>
-        </ Switch> 
+        React.createElement(Switch, null, React.createElement(Route, {
+            path: `${match.path}/:type/:id`
+        }, React.createElement(Post, {
+            postIds: postIds,
+            postsPerPage: postsPerPage
+        })), React.createElement(Route, {
+            path: `/`
+        }, React.createElement(Post, {
+            postIds: postIds,
+            postsPerPage: postsPerPage
+        })))
     );
 }
 
@@ -91,43 +92,34 @@ function Post ({postIds:postIds, postsPerPage:postsPerPage}){
     // ---------------------------------->
 
     return (
-    <React.Fragment>
-        {   
-            postsData.map( (post, index) => (
-                <div className="card-display" key={+index+1}>
-
-                    <a href={type == 'q' ? '#blog/p/'+String((+id-1)*postsPerPage+index+1) : '#blog/q/'+Math.ceil(id/postsPerPage)}>
-                        <h2 className={"card-title "+( type == 'p' ? 'card-title-indented': '')}>
-                            { post.title }
-                        </h2>
-                    </a>
-                    <div className={'card-date '+( type == 'p' ? 'card-date-indented': '')}>{ post.date }</div>
-                    <Content rawHtml={post.content} key={type+id+index} type={type} />
-                    
-                </div>
-            ))
-        }
-        
-        { type == 'q' &&
-        <div class="page">
-            <div><a href={getURL(+id-1)} >{'<<'}</a></div>
-            {
-                pageList.map( page => (
-                    <div class={ page == +id - 1 ? 'currentpage': ''} >
-                        <a href={getURL(+page + 1)} >{+page+1}</a>
-                    </div>
-                ))
-            }
-            <div><a href={getURL(+id+1)} >{'>>'}</a></div>
-        </div>
-        }
-
-        { type == 'p' &&
-        <div class="page">
-            <div><a href={'#blog/q/'+Math.ceil(id/postsPerPage)}>{'<< 返回列表'}</a></div>
-        </div>
-        }
-    </React.Fragment>
+        React.createElement(React.Fragment, null, postsData.map((post, index) => React.createElement("div", {
+            className: "card-display",
+            key: +index + 1
+        }, React.createElement("a", {
+            href: type == 'q' ? '#blog/p/' + String((+id - 1) * postsPerPage + index + 1) : '#blog/q/' + Math.ceil(id / postsPerPage)
+        }, React.createElement("h2", {
+            className: "card-title " + (type == 'p' ? 'card-title-indented' : '')
+        }, post.title)), React.createElement("div", {
+            className: 'card-date ' + (type == 'p' ? 'card-date-indented' : '')
+        }, post.date), React.createElement(Content, {
+            rawHtml: post.content,
+            key: type + id + index,
+            type: type
+        }))), type == 'q' && React.createElement("div", {
+            class: "page"
+        }, React.createElement("div", null, React.createElement("a", {
+            href: getURL(+id - 1)
+        }, '<<')), pageList.map(page => React.createElement("div", {
+            class: page == +id - 1 ? 'currentpage' : ''
+        }, React.createElement("a", {
+            href: getURL(+page + 1)
+        }, +page + 1))), React.createElement("div", null, React.createElement("a", {
+            href: getURL(+id + 1)
+        }, '>>'))), type == 'p' && React.createElement("div", {
+            class: "page"
+        }, React.createElement("div", null, React.createElement("a", {
+            href: '#blog/q/' + Math.ceil(id / postsPerPage)
+        }, '<< 返回列表'))))
     )
 }
 
@@ -202,27 +194,38 @@ function Content({rawHtml:rawHtml, key:key, type:type}){
     // ---------------------------------->
 
     return (
-    <React.Fragment>
-        <div    style={contentBoxStyle} key={key} 
-                className={'card-text '+( type == 'p' ? 'card-text-indented' : '')} 
-                ref={contentBody} onClick={expansionSwitcher} 
-                dangerouslySetInnerHTML={{__html: rawHtml}} >
-
-        </div>
-
-    { isShowMoreShown && 
-        <div style={{display:'flex', justifyContent:'center'}} >
-            <div style={showMoreStyle} onClick={expansionSwitcher}>
-                <div style={expandingStyle}>
-                    <img width="28px" height="28px" src="./data/img/pull.svg" alt="Quiet" />
-                </div>
-                <div style={hidingStyle}>
-                    <img width="28px" height="28px" src="./data/img/push.svg" alt="Quiet" />
-                </div>
-            </div>
-        </div>
-    }
-    </React.Fragment>
+        React.createElement(React.Fragment, null, React.createElement("div", {
+            style: contentBoxStyle,
+            key: key,
+            className: 'card-text ' + (type == 'p' ? 'card-text-indented' : ''),
+            ref: contentBody,
+            onClick: expansionSwitcher,
+            dangerouslySetInnerHTML: {
+            __html: rawHtml
+            }
+        }), isShowMoreShown && React.createElement("div", {
+            style: {
+            display: 'flex',
+            justifyContent: 'center'
+            }
+        }, React.createElement("div", {
+            style: showMoreStyle,
+            onClick: expansionSwitcher
+        }, React.createElement("div", {
+            style: expandingStyle
+        }, React.createElement("img", {
+            width: "28px",
+            height: "28px",
+            src: "./data/img/pull.svg",
+            alt: "Quiet"
+        })), React.createElement("div", {
+            style: hidingStyle
+        }, React.createElement("img", {
+            width: "28px",
+            height: "28px",
+            src: "./data/img/push.svg",
+            alt: "Quiet"
+        })))))
     )
 }
 

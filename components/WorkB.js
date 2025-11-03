@@ -12,146 +12,156 @@ import { loadLessStyle, removeElementById } from './utility.js';
 function Vocabulary(){
 
     const lessStyle = /* css */`
-        @font-face {
-            font-family: "Courier New";
-            font-style: normal;
-            font-weight: 100;
-            src: url('./assets/fonts/CourierNew.ttf') format('truetype');
-        }
-        .work_main{
-            display: block;
-            text-align: center; 
-            margin-top: 13px;
-            #header{
-                display: flex;
-                justify-content: left;
-                height: 20px;
-                align-items: center;
-                #headerLabel{
-                    text-align: left;
-                    width: 5em;
-                    font-size: 8.5pt;
-                    font-family: 'arial';
-                }
-            }
-            #wordBox {
-                display: block;
-                height: calc(100vh - 53px - 20px - 5px);
-                font-family: 'Times New Roman', Times, serif;
-                #word {
-                    -webkit-user-select: none;
-                    height: calc((100vh - 53px - 20px - 5px)*0.3);
-                    font-size: calc((100vh - 20px - 20px - 5px)*0.28);
-                    display: flex;
-                    justify-content: center;
-                    align-items: end;
-                    margin-bottom: 3vh;
-                    overflow: hidden;
-                    white-space: nowrap;
-                    #wordText{
-                        color: #d62626;
-                        position:relative;
-                        top: 0em;
-                        font-family:  'Times New Roman', Times, serif;
-                    }
-                    .wordScroll {
-                        display: inline-block;
-                        animation: wordTextScroll 20s linear infinite;
-                    }
-                    @keyframes wordTextScroll {
-                        0% { transform: translateX(50%); }
-                        100% { transform: translateX(-100%); }
-                    }
-                }
-                .exp {
-                    -webkit-user-select: none;
-                    height: calc((100vh - 53px - 20px - 5px)*0.13);
-                    font-size: calc((100vh - 53px - 20px - 5px)*0.12);
-                    display: flex;
-                    justify-content: left;
-                    color: blue;
-                    border: solid;
-                    border-width: 0.5vh;
-                    border-color: white;
-                    border-radius: 1vh;
-                    margin: 0 1em;
-                    @media (max-width: 1200px){
-                        margin: 0;
-                    }
-                    .optionLabel{
-                        text-align: center;
-                        min-width: 1em;
-                        .optLabel{
-                            font-family: 'Courier New', "SimSun";
-                            position: relative;
-                            top: -3vh;
-                        }
-                    }
-                    .optionText{
-                        flex-grow: 0;
-                        text-align: left;
-                        overflow: hidden;
-                        white-space: nowrap;
-                        .optText{
-                            position: relative;
-                            top: -2vh;
-                            font-family: "SimSun";
-                            font-size: calc((100vh - 53px - 20px - 5px)*0.12);
-                        }
-                        .expScroll {
-                            display: inline-block;
-                            animation: expTextScroll 20s linear infinite;
-                        }
-                        @keyframes expTextScroll {
-                            0% { transform: translateX(0vw); }
-                            100% { transform: translateX(-100%); }
-                        }
-                    }
-                    .optionTextFade{
-                        -webkit-mask-image: linear-gradient(90deg, transparent, black 5%);
-/*                         mask-image: linear-gradient(90deg, transparent, black 5%); */
-                    }
-                    .optionMark{
-                        font-family: "SimSun";
-                        font-size: calc((100vh - 53px - 20px - 5px)*0.16);
-                        position: relative;
-                        color: red;
-                        display: inline-block;
-                        text-align: center;
-                        width: 0.5em;
-                        top: -3.2vh;
-                    }
-                }
-                .chosed{
-                    background-color: rgb(212, 223, 183);
-                    border-color: red;
-                }
-                .correct{
-                    color: red;
-                    border-color: red;
-                    background-color: antiquewhite;
-                }
-                .wrong{
-                    color: black;
-                }
-            }
-        #statistics{
-            text-align: left;
-            display: none; 
-            padding: 0 3vw;
-            @media (max-width:  1200px){
-                padding: 0;
-            }
-        }
-        #progressBar{
-            height:5px; 
-            width:90%; 
-            background-color: gray;
-        }
-        }
-
-
-`;/* css */
+    @font-face {
+    font-family: "Courier New";
+    font-style: normal;
+    font-weight: 100;
+    src: url('./assets/fonts/CourierNew.ttf') format('truetype');
+    }
+    .work_main {
+    display: block;
+    text-align: center;
+    margin-top: 13px;
+    }
+    .work_main #header {
+    display: flex;
+    justify-content: left;
+    height: 20px;
+    align-items: center;
+    }
+    .work_main #header #headerLabel {
+    text-align: left;
+    width: 5em;
+    font-size: 8.5pt;
+    font-family: 'arial';
+    }
+    .work_main #wordBox {
+    display: block;
+    height: calc(100vh - 53px - 20px - 5px);
+    font-family: 'Times New Roman', Times, serif;
+    }
+    .work_main #wordBox #word {
+    -webkit-user-select: none;
+    height: calc((100vh - 53px - 20px - 5px)*0.3);
+    font-size: calc((100vh - 20px - 20px - 5px)*0.28);
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    margin-bottom: 3vh;
+    overflow: hidden;
+    white-space: nowrap;
+    }
+    .work_main #wordBox #word #wordText {
+    color: #d62626;
+    position: relative;
+    top: 0em;
+    font-family: 'Times New Roman', Times, serif;
+    }
+    .work_main #wordBox #word .wordScroll {
+    display: inline-block;
+    animation: wordTextScroll 20s linear infinite;
+    }
+    @keyframes wordTextScroll {
+    0% {
+        transform: translateX(50%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+    }
+    .work_main #wordBox .exp {
+    -webkit-user-select: none;
+    height: calc((100vh - 53px - 20px - 5px)*0.13);
+    font-size: calc((100vh - 53px - 20px - 5px)*0.12);
+    display: flex;
+    justify-content: left;
+    color: blue;
+    border: solid;
+    border-width: 0.5vh;
+    border-color: white;
+    border-radius: 1vh;
+    margin: 0 1em;
+    }
+    @media (max-width: 1200px) {
+    .work_main #wordBox .exp {
+        margin: 0;
+    }
+    }
+    .work_main #wordBox .exp .optionLabel {
+    text-align: center;
+    min-width: 1em;
+    }
+    .work_main #wordBox .exp .optionLabel .optLabel {
+    font-family: 'Courier New', "SimSun";
+    position: relative;
+    top: -3vh;
+    }
+    .work_main #wordBox .exp .optionText {
+    flex-grow: 0;
+    text-align: left;
+    overflow: hidden;
+    white-space: nowrap;
+    }
+    .work_main #wordBox .exp .optionText .optText {
+    position: relative;
+    top: -2vh;
+    font-family: "SimSun";
+    font-size: calc((100vh - 53px - 20px - 5px)*0.12);
+    }
+    .work_main #wordBox .exp .optionText .expScroll {
+    display: inline-block;
+    animation: expTextScroll 20s linear infinite;
+    }
+    @keyframes expTextScroll {
+    0% {
+        transform: translateX(0vw);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+    }
+    .work_main #wordBox .exp .optionTextFade {
+    -webkit-mask-image: linear-gradient(90deg, transparent, black 5%);
+    /*                         mask-image: linear-gradient(90deg, transparent, black 5%); */
+    }
+    .work_main #wordBox .exp .optionMark {
+    font-family: "SimSun";
+    font-size: calc((100vh - 53px - 20px - 5px)*0.16);
+    position: relative;
+    color: red;
+    display: inline-block;
+    text-align: center;
+    width: 0.5em;
+    top: -3.2vh;
+    }
+    .work_main #wordBox .chosed {
+    background-color: #d4dfb7;
+    border-color: red;
+    }
+    .work_main #wordBox .correct {
+    color: red;
+    border-color: red;
+    background-color: antiquewhite;
+    }
+    .work_main #wordBox .wrong {
+    color: black;
+    }
+    .work_main #statistics {
+    text-align: left;
+    display: none;
+    padding: 0 3vw;
+    }
+    @media (max-width: 1200px) {
+    .work_main #statistics {
+        padding: 0;
+    }
+    }
+    .work_main #progressBar {
+    height: 5px;
+    width: 90%;
+    background-color: gray;
+    }
+    `;/* css */
 
 
 
@@ -498,18 +508,30 @@ function Vocabulary(){
 
 
     const expList = [0,1,2,3].map(i => 
-        <div id={i} class="exp" onMouseMove={()=>{optionMouseMove(i)}} onClick={optionClick}>
-            <div class="optionLabel">
-                <span id={"exp"+i+"Label"} class="optLabel">
-                </span>
-            </div>
-            <div id={"optionText"+i} class="optionText">
-                <span id={"exp"+i+"Text"} class="optText">
-                </span>
-            </div>
-            <span id={"exp"+i+"Mark"} class="optionMark">
-            </span>
-        </div>
+
+        React.createElement("div", {
+            id: i,
+            class: "exp",
+            onMouseMove: () => {
+            optionMouseMove(i);
+            },
+            onClick: optionClick
+        }, React.createElement("div", {
+            class: "optionLabel"
+        }, React.createElement("span", {
+            id: "exp" + i + "Label",
+            class: "optLabel"
+        })), React.createElement("div", {
+            id: "optionText" + i,
+            class: "optionText"
+        }, React.createElement("span", {
+            id: "exp" + i + "Text",
+            class: "optText"
+        })), React.createElement("span", {
+            id: "exp" + i + "Mark",
+            class: "optionMark"
+        }))    
+
     )
 
 
@@ -517,27 +539,39 @@ function Vocabulary(){
 
 
     return (
-    <div class="card-display">
-        <div className="work_main">
-            <div id="header">
-                <span id="headerLabel">读取词库</span>
-                <input type="file" id="fileInput" accept=".txt" onChange={readFile} />
-            </div>
-            
-            <div id="wordBox">
-                <div id="word">
-                    <span id="wordText"></span>
-                </div>
-
-                { expList }
-                
-                <div><audio id="audioPlayer"></audio></div>
-                <div><audio id="wrongPlayer" preload="auto" src="./data/audio/wrong.m4a"></audio></div>
-                <div><audio id="rightPlayer" preload="auto" src="./data/audio/right.m4a"></audio></div>
-            </div>
-            <div id="statistics"></div>
-            <div id="progressBar"></div>
-        </div>
-    </div>    
+        React.createElement("div", {
+            class: "card-display"
+        }, React.createElement("div", {
+            className: "work_main"
+        }, React.createElement("div", {
+            id: "header"
+        }, React.createElement("span", {
+            id: "headerLabel"
+        }, "\u8BFB\u53D6\u8BCD\u5E93"), React.createElement("input", {
+            type: "file",
+            id: "fileInput",
+            accept: ".txt",
+            onChange: readFile
+        })), React.createElement("div", {
+            id: "wordBox"
+        }, React.createElement("div", {
+            id: "word"
+        }, React.createElement("span", {
+            id: "wordText"
+        })), expList, React.createElement("div", null, React.createElement("audio", {
+            id: "audioPlayer"
+        })), React.createElement("div", null, React.createElement("audio", {
+            id: "wrongPlayer",
+            preload: "auto",
+            src: "./data/audio/wrong.m4a"
+        })), React.createElement("div", null, React.createElement("audio", {
+            id: "rightPlayer",
+            preload: "auto",
+            src: "./data/audio/right.m4a"
+        }))), React.createElement("div", {
+            id: "statistics"
+        }), React.createElement("div", {
+            id: "progressBar"
+        })))
     )
 }
