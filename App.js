@@ -12,35 +12,20 @@ function App() {
 
     return (
 
-    React.createElement(HashRouter, null, React.createElement(Switch, null, React.createElement(Route, {
-        path: "/",
-        exact: true,
-        render: () => React.createElement(SubView, {
-        id: "/"
-        })
-    }), React.createElement(Route, {
-        path: "/schedual",
-        exact: true,
-        render: () => React.createElement(SubView, {
-        id: "schedual"
-        })
-    }), React.createElement(Route, {
-        path: "/work",
-        exact: true,
-        render: () => React.createElement(SubView, {
-        id: "work"
-        })
-    }), React.createElement(Route, {
-        path: "/blog",
-        render: () => React.createElement(SubView, {
-        id: "blog"
-        })
-    }), React.createElement(Route, {
-        path: "/work/:work",
-        render: () => React.createElement(SubView, {
-        id: "WorkView"
-        })
-    })))
+        <HashRouter>
+            <Switch>
+
+                <Route path="/" exact render={() => <SubView id='/' />}/>
+                {/* <Route path="/about" exact render={() => <SubView id='about' />}/> */}
+                <Route path="/schedual" exact render={() => <SubView id='schedual' />}/>
+                <Route path="/work" exact render={() => <SubView id='work' />}/>
+
+                <Route path="/blog" render={() => <SubView id='blog' />}/>
+                
+                <Route path="/work/:work" render={() => <SubView  id='WorkView'/>}/>
+
+            </Switch>
+        </HashRouter>
 
     );
 }
@@ -53,4 +38,4 @@ const container = document.getElementById('App');
 
 const root = ReactDOM.createRoot(container);
 
-root.render(React.createElement(App, null));
+root.render(<App />);

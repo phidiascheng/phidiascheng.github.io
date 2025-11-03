@@ -1,5 +1,5 @@
 
-// const { refreshStyles } = less
+const { refreshStyles } = less
 
 export { loadLessStyle, removeElementById }
 
@@ -9,12 +9,11 @@ export { loadLessStyle, removeElementById }
 
 function loadLessStyle (lessStyle, elementId) {
     const less = document.createElement('style');
-    // less.type = "text/less"
-    less.type = "text/css"
+    less.type = "text/less"
     less.id = elementId
     less.textContent = lessStyle
     document.head.appendChild(less);
-    // refreshStyles();
+    refreshStyles();
 }
 
 

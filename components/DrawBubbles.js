@@ -131,14 +131,13 @@ function DrawBubbles(){
 
 
     return(
-        React.createElement("canvas", {
-            style: style,
-            width: width + 'px',
-            height: height + 'px',
-            onMouseOver: handleMouseOver,
-            onMouseOut: handleMouseOut,
-            onMouseMove: handleMouseMove,
-            ref: canvas
-        })
+        <canvas style={style} 
+                width={width+'px'}
+                height={height+'px'}
+                onMouseOver={handleMouseOver} 
+                onMouseOut={handleMouseOut}
+                onMouseMove={handleMouseMove}
+                ref={canvas}
+                />        
     ) 
 }

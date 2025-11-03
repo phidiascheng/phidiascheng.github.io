@@ -13,37 +13,31 @@ import { loadLessStyle, removeElementById } from './utility.js';
 function Clock(){
 
     const lessStyle = /* css */`
-    .work_main {
-    max-width: 100%;
-    text-align: center;
-    }
-    .work_main .button {
-    border: solid;
-    border-width: 1px;
-    border-radius: 8px;
-    width: 200px;
-    height: 40px;
-    font-family: "STKai";
-    font-size: 26px;
-    margin: 20px;
-    background-color: aliceblue;
-    }
-    .work_main .button:active {
-    color: grey;
-    background-color: lavenderblush;
-    }
-    @media screen and (max-width: 840px) {
-    .work_main .pdfbox {
-        width: 95%;
-        aspect-ratio: 3/2.2;
-    }
-    }
-    @media screen and (min-width: 840px) {
-    .work_main .pdfbox {
-        width: 800px;
-        aspect-ratio: 3/2.2;
-    }
-    }
+            .work_main{
+                max-width: 100%;
+                text-align: center; 
+                .button{
+                    border: solid; 
+                    border-width: 1px; 
+                    border-radius: 8px;
+                    width: 200px; 
+                    height: 40px; 
+                    font-family: "STKai"; 
+                    font-size: 26px;
+                    margin: 20px;
+                    background-color: aliceblue;
+                    &:active{
+                        color: grey;
+                        background-color: lavenderblush;
+                    }
+                }
+            }
+            @media screen and (max-width:840px) {
+                .work_main .pdfbox {width: 95%; aspect-ratio: 3/2.2;}
+            }
+            @media screen and (min-width:840px) {
+                .work_main .pdfbox {width: 800px; aspect-ratio: 3/2.2;}
+            }  
     `;/* css */
 
     function loadJs(){
@@ -68,23 +62,17 @@ function Clock(){
 
 
     return (
-        React.createElement("div", {
-            class: "card-display"
-        }, React.createElement("a", null, React.createElement("h2", {
-            className: "card-title"
-        }, "\u65F6\u949F\u7EC3\u4E60")), React.createElement("div", {
-            className: "work_main"
-        }, React.createElement("div", null, React.createElement("div", null, React.createElement("button", {
-            className: "button",
-            id: "createCalcPDFFile",
-            onClick: createClock
-        }, "\u751F\u6210\u65F6\u949F\u7EC3\u4E60")), React.createElement("div", null, React.createElement("iframe", {
-            className: "pdfbox",
-            id: "pdf",
-            style: {
-            display: 'none'
-            }
-        })))))
+    <div class="card-display">
+
+        <a><h2 className="card-title">时钟练习</h2></a>
+        <div className="work_main">
+            <div>
+                <div><button className="button" id="createCalcPDFFile" onClick={createClock}>生成时钟练习</button></div>
+                <div><iframe className="pdfbox" id="pdf" style={{display: 'none'}}></iframe></div>
+            </div>
+        </div>
+
+    </div>    
     )
 
     async function createClock(){
@@ -196,52 +184,53 @@ function Clock(){
 
 function Pdfsheets(){
     const lessStyle = /* css */`
-    .work_main {
-    max-width: 100%;
-    text-align: center;
-    }
-    .work_main label {
-    font-size: 20px;
-    line-height: 0px;
-    font-family: "STKai", "PingFang", "OpenSans", "SimHei", "STHei";
-    }
-    .work_main .inputtext {
-    border: solid;
-    border-width: 1px;
-    border-radius: 15px;
-    border-color: #f19468;
-    font-family: "STKai";
-    font-size: 30px;
-    text-align: center;
-    margin: 10px 0;
-    }
-    .work_main .button {
-    border: solid;
-    border-width: 1px;
-    border-radius: 8px;
-    width: 150px;
-    height: 30px;
-    font-family: "STKai";
-    font-size: 26px;
-    margin: 10px;
-    background-color: aliceblue;
-    }
-    .work_main .button:active {
-    color: grey;
-    background-color: lavenderblush;
-    }
-    @media screen and (max-width: 900px) {
-    .work_main .pdfbox {
-        width: 90%;
-        aspect-ratio: 3/2.2;
-    }
-    }
-    @media screen and (min-width: 900px) {
-    .work_main .pdfbox {
-        width: 840px;
-        aspect-ratio: 3/2.2;
-    }
-    }
+            .work_main{
+                max-width: 100%;
+                text-align: center; 
+                label{
+                    font-size: 20px;
+                    line-height: 0px;
+                    font-family: "STKai","PingFang","OpenSans","SimHei","STHei";
+                }
+                .inputtext{
+                    border: solid; 
+                    border-width: 1px; 
+                    border-radius: 15px;
+                    border-color: rgb(241, 148, 104);
+                    font-family: "STKai"; 
+                    font-size: 30px;
+                    text-align: center;
+                    margin: 10px 0;
+                }
+                .button{
+                    border: solid; 
+                    border-width: 1px; 
+                    border-radius: 8px;
+                    width: 150px; 
+                    height: 30px; 
+                    font-family: "STKai"; 
+                    font-size: 26px;
+                    margin: 10px;
+                    background-color: aliceblue;
+                    &:active{
+                        color: grey;
+                        background-color: lavenderblush;
+                    }
+                }
+            }
+
+            @media screen and (max-width:900px) {
+                .work_main .pdfbox {
+                    width: 90%; 
+                    aspect-ratio: 3/2.2;
+                }
+            }
+            @media screen and (min-width:900px) {
+                .work_main .pdfbox {
+                    width: 840px; 
+                    aspect-ratio: 3/2.2;
+                }
+            }
     `;/* css */
 
     function loadJs(){
@@ -271,83 +260,30 @@ function Pdfsheets(){
     },[]);
 
     return (
-        React.createElement("div", {
-            class: "card-display"
-        }, React.createElement("a", null, React.createElement("h2", {
-            class: "card-title"
-        }, "\u7B14\u987A\u7EC3\u4E60")), React.createElement("div", {
-            class: "work_main"
-        }, React.createElement("div", null, React.createElement("label", {
-            class: "label",
-            for: "text-input"
-        }, React.createElement("span", null, "\u8F93\u5165\u6C49\u5B57"), " ", React.createElement("br", null), " \u4F8B\u5982: \u5F2F\u5F2F\u7684\u6708\u513F\u5C0F\u5C0F\u7684\u8239\uFF0C;;\u5C0F\u5C0F\u7684\u8239\u513F\u4E24\u5934\u5C16\u3002;;\u6211\u5728\u5C0F\u5C0F\u7684\u8239\u91CC\u5750 ", React.createElement("br", null), " \u534A\u89D2;;\u4F5C\u4E3A\u6362\u884C\u7B26\uFF0C\u6807\u70B9\u548C\u7A7A\u683C\u4E5F\u7B97\u4E00\u4E2A\u5B57\u7B26")), React.createElement("div", null, React.createElement("input", {
-            class: "inputtext",
-            style: {
-            width: '100%'
-            },
-            id: "text-input",
-            type: "text",
-            placeholder: "\u6C49\u5B57:"
-        })), React.createElement("div", null, React.createElement("label", {
-            class: "label",
-            for: "text-input"
-        }, React.createElement("span", null, " \u8F93\u5165\u62FC\u97F3\u6216\u82F1\u6587 "), React.createElement("br", null), " \u4F8B\u5982: \u62FC\u97F3 wan, wan, de, yue, er ;; Xiao, Xiao, de, chuan", React.createElement("br", null), "\u534A\u89D2backtick(\\`)\u4F5C\u4E3A\u53E5\u5B50\u5206\u9694\uFF0C\u534A\u89D2\u9017\u53F7\u4F5C\u4E3A\u62FC\u97F3\u5206\u9694\uFF0C\u652F\u6301\u5E26\u97F3\u8C03\u7684\u5B57\u7B26\uFF0C\u53EF\u4EE5\u4EFB\u610F\u7A7A\u683C\uFF0C\u7A7A\u683C\u4F1A\u88AB\u5FFD\u7565\u6389", React.createElement("br", null), "\u6216\u8F93\u5165\u82F1\u6587: today is a nice day. ;; we are going to play.", React.createElement("br", null), "\u82F1\u6587\u53E5\u5B50\u9996\u5C3E\u7684\u7A7A\u683C\u4F1A\u88AB\u53BB\u6389\uFF0C\u4F46\u4E2D\u95F4\u7684\u4F1A\u4FDD\u7559\u3002\u82F1\u6587\u683C\u91CC\u8BC6\u522B\u82F1\u6587\u683C\u5F0F\uFF0C\u5176\u4ED6\u8BC6\u522B\u62FC\u97F3\u683C\u5F0F")), React.createElement("div", null, React.createElement("input", {
-            class: "inputtext",
-            style: {
-            width: '100%'
-            },
-            id: "text-pinyin",
-            type: "text",
-            placeholder: "\u62FC\u97F3:"
-        })), React.createElement("div", null, React.createElement("button", {
-            class: "button",
-            style: {
-            fontSize: '20px'
-            },
-            id: "createPDFFile",
-            onClick: createTianzige
-        }, "\u751F\u6210\u7530\u5B57\u683C"), React.createElement("button", {
-            class: "button",
-            style: {
-            fontSize: '20px'
-            },
-            id: "createPDFFile",
-            onClick: createYingyuge
-        }, "\u751F\u6210\u82F1\u8BED\u683C"), React.createElement("button", {
-            class: "button",
-            style: {
-            fontSize: '20px'
-            },
-            id: "createPDFFile",
-            onClick: createPinyinge
-        }, "\u751F\u6210\u62FC\u97F3\u683C"), React.createElement("button", {
-            class: "button",
-            style: {
-            fontSize: '20px'
-            },
-            id: "createPDFFile",
-            onClick: createZuowenge
-        }, "\u751F\u6210\u4F5C\u6587\u683C"), React.createElement("button", {
-            class: "button",
-            style: {
-            fontSize: '20px'
-            },
-            id: "createPDFFile",
-            onClick: createCalcpaper
-        }, "\u751F\u6210\u52A0\u51CF\u8349\u7A3F\u7EB8"), React.createElement("button", {
-            class: "button",
-            style: {
-            fontSize: '20px'
-            },
-            id: "createPDFFile",
-            onClick: createDivpaper
-        }, "\u751F\u6210\u9664\u6CD5\u8349\u7A3F\u7EB8")), React.createElement("div", null, React.createElement("iframe", {
-            class: "pdfbox",
-            id: "pdf",
-            style: {
-            display: 'none'
-            }
-        }))))
+    <div class="card-display">
+        <a><h2 class="card-title">笔顺练习</h2></a>
+
+        <div class="work_main">
+            <div><label class="label" for="text-input"><span>输入汉字</span> <br /> 例如: 弯弯的月儿小小的船，;;小小的船儿两头尖。;;我在小小的船里坐 <br /> 半角;;作为换行符，标点和空格也算一个字符</label></div>
+            <div><input class="inputtext" style={{width:'100%'}} id="text-input" type="text" placeholder="汉字:" /></div>
+            <div><label class="label" for="text-input"><span> 输入拼音或英文 </span><br /> 例如: 拼音 wan, wan, de, yue, er ;; Xiao, Xiao, de, chuan<br />
+                半角backtick(\`)作为句子分隔，半角逗号作为拼音分隔，支持带音调的字符，可以任意空格，空格会被忽略掉<br />
+                或输入英文: today is a nice day. ;; we are going to play.<br />
+                英文句子首尾的空格会被去掉，但中间的会保留。英文格里识别英文格式，其他识别拼音格式</label></div>
+            <div><input class="inputtext" style={{width:'100%'}} id="text-pinyin" type="text" placeholder="拼音:" /></div>
+
+            <div>
+                <button class="button" style={{fontSize: '20px'}} id="createPDFFile" onClick={createTianzige}>生成田字格</button>
+                <button class="button" style={{fontSize: '20px'}} id="createPDFFile" onClick={createYingyuge}>生成英语格</button>
+                <button class="button" style={{fontSize: '20px'}} id="createPDFFile" onClick={createPinyinge}>生成拼音格</button>
+                <button class="button" style={{fontSize: '20px'}} id="createPDFFile" onClick={createZuowenge}>生成作文格</button>
+                <button class="button" style={{fontSize: '20px'}} id="createPDFFile" onClick={createCalcpaper}>生成加减草稿纸</button>
+                <button class="button" style={{fontSize: '20px'}} id="createPDFFile" onClick={createDivpaper}>生成除法草稿纸</button>
+            </div>
+            <div><iframe class="pdfbox" id="pdf" style={{display: 'none'}}></iframe></div>
+
+        </div>
+    </div>   
     )
 
 async function createDivpaper() {
@@ -685,60 +621,65 @@ async function createPinyinge() {
 function Bishunsheet(){
     
     const lessStyle = /* css */`
-    .work_main {
-    max-width: 100%;
-    text-align: center;
-    }
-    .work_main .label {
-    font-family: "STKai";
-    font-size: 30px;
-    }
-    .work_main .inputtext {
-    border: solid;
-    border-width: 1px;
-    border-radius: 15px;
-    border-color: #f19468;
-    font-family: "STKai";
-    font-size: 40px;
-    text-align: center;
-    margin: 10px 0;
-    }
-    .work_main .button {
-    border: solid;
-    border-width: 1px;
-    border-radius: 8px;
-    width: 150px;
-    height: 40px;
-    font-family: "STKai";
-    font-size: 26px;
-    margin: 10px;
-    background-color: aliceblue;
-    }
-    .work_main .button:active {
-    color: grey;
-    background-color: lavenderblush;
-    }
-    @media screen and (max-width: 900px) {
-    .work_main .pdfbox {
-        width: 95%;
-        aspect-ratio: 3/2.2;
-    }
-    .work_main .inputtext {
-        width: 95%;
-    }
-    .work_main .label {
-        font-size: 24px;
-    }
-    }
-    @media screen and (min-width: 900px) {
-    .work_main .pdfbox {
-        width: 840px;
-        aspect-ratio: 3/2.2;
-    }
-    .work_main .inputtext {
-        width: 800px;
-    }
-    }
+            .work_main{
+                max-width: 100%;
+                text-align: center; 
+                .label{
+                    font-family: "STKai"; 
+                    font-size: 30px;
+                }
+                .inputtext{
+                    border: solid; 
+                    border-width: 1px; 
+                    border-radius: 15px;
+                    border-color: rgb(241, 148, 104);
+                    font-family: "STKai"; 
+                    font-size: 40px;
+                    text-align: center;
+                    margin: 10px 0;
+                }
+                .button{
+                    border: solid; 
+                    border-width: 1px; 
+                    border-radius: 8px;
+                    width: 150px; 
+                    height: 40px; 
+                    font-family: "STKai"; 
+                    font-size: 26px;
+                    margin: 10px;
+                    background-color: aliceblue;
+                    &:active{
+                        color: grey;
+                        background-color: lavenderblush;
+                    }
+                }
+            }
+
+            @media screen and (max-width:900px) {
+                .work_main {
+                    .pdfbox {
+                        width: 95%; 
+                        aspect-ratio: 3/2.2;
+                    }
+                    .inputtext { 
+                        width:95%;
+                    }
+                    .label{
+                        font-size: 24px;
+                    }
+                }
+            }
+            @media screen and (min-width:900px) {
+                .work_main {
+                    .pdfbox {
+                        width: 840px; 
+                        aspect-ratio: 3/2.2;
+                    }
+                    .inputtext { 
+                        width:800px;
+                    }
+                }
+            }
     `/* css */
 
     function loadJs(){
@@ -762,34 +703,16 @@ function Bishunsheet(){
     },[]);
 
     return (
-        React.createElement("div", {
-            class: "card-display"
-        }, React.createElement("a", null, React.createElement("h2", {
-            class: "card-title"
-        }, "\u7B14\u987A\u7EC3\u4E60")), React.createElement("div", {
-            class: "work_main"
-        }, React.createElement("div", null, React.createElement("label", {
-            class: "label",
-            for: "text-input"
-        }, "\u8F93\u5165\u6C49\u5B57 \u6700\u591A12\u4E2A\u6C49\u5B57")), React.createElement("div", null, React.createElement("input", {
-            class: "inputtext",
-            id: "text-input",
-            type: "text",
-            placeholder: "\u6C49\u5B57:",
-            onKeyDown: clickPress
-        })), React.createElement("div", null, React.createElement("button", {
-            class: "button",
-            id: "createPDFFile",
-            onClick: createHanzi
-        }, "\u751F\u6210\u7B14\u987A")), React.createElement("div", {
-            id: "timer"
-        }), React.createElement("div", null, React.createElement("iframe", {
-            class: "pdfbox",
-            id: "pdf",
-            style: {
-            display: 'none'
-            }
-        }))))
+        <div class="card-display">
+            <a><h2 class="card-title">笔顺练习</h2></a>
+            <div class="work_main">
+                <div><label class="label" for="text-input">输入汉字 最多12个汉字</label></div>
+                <div><input class="inputtext" id="text-input" type="text" placeholder="汉字:" onKeyDown={clickPress} /></div>
+                <div><button class="button" id="createPDFFile" onClick={createHanzi}>生成笔顺</button></div>
+                <div id="timer"></div>
+                <div><iframe class="pdfbox" id="pdf" style={{display: 'none'}}></iframe></div>
+            </div>
+        </div>
     )
 
 
@@ -936,117 +859,111 @@ function Bishunsheet(){
 function Dict(){
 
     const lessStyle = /* css */`
-    .fixhead {
-    height: 180px;
-    width: 100%;
-    background-color: white;
-    position: fixed;
-    top: 24px;
-    left: 50%;
-    transform: translate(-50%, 0%);
-    }
-    .fixhead .inputbox {
-    max-width: 100%;
-    text-align: center;
-    margin-top: -30px;
-    }
-    .fixhead .inputbox label {
-    font-family: "STKai";
-    font-size: 36px;
-    }
-    .fixhead .inputbox .inputtext {
-    border: solid;
-    border-width: 1px;
-    border-radius: 15px;
-    border-color: #f19468;
-    font-size: 36px;
-    font-family: "Times New Roman", "STKai";
-    text-align: center;
-    margin: 10px 0;
-    }
-    .fixhead .inputbox .button {
-    border: solid;
-    border-width: 1px;
-    border-radius: 8px;
-    width: 100px;
-    height: 40px;
-    font-family: "STKai";
-    font-size: 28px;
-    background-color: aliceblue;
-    }
-    .fixhead .inputbox .button:active {
-    color: grey;
-    background-color: lavenderblush;
-    }
-    .dictbox {
-    display: flex;
-    max-width: 100%;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: stretch;
-    margin-top: 180px;
-    }
-    .dictbox .translationbox,
-    .dictbox .phrasebox {
-    display: flex;
-    flex-grow: 1;
-    flex-shrink: 1;
-    flex-basis: 600px;
-    justify-content: center;
-    align-items: top;
-    margin: 20px 5px;
-    font-size: 28px;
-    }
-    .dictbox .translationbox ul {
-    padding: 20px 40px;
-    border: solid;
-    border-width: 1px;
-    border-radius: 15px;
-    border-color: #f19468;
-    }
-    .dictbox .translationbox ul li {
-    list-style-type: none;
-    font-family: "STKai";
-    }
-    .dictbox .translationbox ul li + li {
-    margin-top: 20px;
-    }
-    .dictbox .translationbox ul .type {
-    font-style: italic;
-    font-size: 20px;
-    color: red;
-    font-family: Arial, Helvetica, sans-serif;
-    }
-    .dictbox .phrasebox {
-    font-size: 20px;
-    }
-    .dictbox .phrasebox ul li {
-    list-style-type: none;
-    font-family: "STKai";
-    }
-    .dictbox .phrasebox ul li + li {
-    margin-top: 10px;
-    }
-    @media screen and (max-width: 650px) {
-    .dictbox .translationbox,
-    .dictbox .phrasebox,
-    .dictbox .phrasebox {
-        flex-grow: 1;
-    }
-    .fixhead .inputbox .inputtext {
-        width: calc(100% - 20px);
-    }
-    }
-    @media screen and (min-width: 650px) {
-    .dictbox .translationbox,
-    .dictbox .phrasebox,
-    .dictbox .phrasebox {
-        flex-grow: 0;
-    }
-    .fixhead .inputbox .inputtext {
-        width: 600px;
-    }
-    }
+            .fixhead{
+                height: 180px;
+                width: 100%;
+                background-color: white; 
+                position: fixed;
+                top: 24px;
+                left: 50%;
+                transform: translate(-50%, 0%);	
+
+                .inputbox{
+                    max-width: 100%;
+                    text-align: center; 
+                    margin-top: -30px;
+                    label{
+                        font-family: "STKai"; 
+                        font-size: 36px;
+                    }
+                    .inputtext{
+                        border: solid; 
+                        border-width: 1px; 
+                        border-radius: 15px;
+                        border-color: rgb(241, 148, 104);
+                        font-size: 36px;
+                        font-family: "Times New Roman","STKai";
+                        text-align: center;
+                        margin: 10px 0;
+                    }
+                    .button{
+                        border: solid; 
+                        border-width: 1px; 
+                        border-radius: 8px;
+                        width: 100px; 
+                        height: 40px; 
+                        font-family: "STKai"; 
+                        font-size: 28px;
+                        background-color: aliceblue;
+                        &:active{
+                            color: grey;
+                            background-color: lavenderblush;
+                        }
+                    }
+                }
+            }
+
+            .dictbox{
+                display: flex; 
+                max-width: 100%;
+                flex-wrap: wrap;
+                justify-content: center; 
+                align-items: stretch;
+                margin-top: 180px;
+
+                .translationbox{
+                    display: flex;
+                    flex-grow: 1;
+                    flex-shrink: 1;
+                    flex-basis: 600px;
+                    justify-content: center;
+                    align-items: top;
+                    margin: 20px 5px;
+                    font-size: 28px;
+                    ul{
+                        padding: 20px 40px;
+                        border: solid; 
+                        border-width: 1px; 
+                        border-radius: 15px;
+                        border-color: rgb(241, 148, 104);
+                        li{
+                            list-style-type: none;
+                            font-family: "STKai";
+                        }
+                        li+li{
+                            margin-top: 20px;
+                        }
+                        .type{
+                            font-style: italic;
+                            font-size: 20px;
+                            color: red;
+                            font-family: Arial, Helvetica, sans-serif;
+                        }
+                    }
+                }
+                .phrasebox{
+                    font-size: 20px;
+                    ul{
+                        li{
+                            list-style-type: none;
+                            font-family: "STKai";
+                        }
+                        li+li{
+                            margin-top: 10px;
+                        }
+                    }
+                    &:extend(.dictbox .translationbox);
+                }
+            }
+
+            @media screen and (max-width:650px) {
+                .dictbox .translationbox, .dictbox .phrasebox{flex-grow: 1;}
+                .fixhead .inputbox .inputtext{ width: calc(100% - 20px);}
+            }
+            @media screen and (min-width:650px) {
+                .dictbox .translationbox, .dictbox .phrasebox{flex-grow: 0;}
+                .fixhead .inputbox .inputtext{ width: 600px;}
+            }	
     `/* css */
 
     useMemo( () => {
@@ -1061,40 +978,25 @@ function Dict(){
 
 
     return(
-        React.createElement("div", {
-            class: "card-display"
-        }, React.createElement("div", {
-            class: "fixhead"
-        }, React.createElement("a", null, React.createElement("h2", {
-            class: "card-title"
-        }, "\u7F51\u9875\u8BCD\u5178")), React.createElement("div", {
-            class: "inputbox"
-        }, React.createElement("div", null, React.createElement("div", null, React.createElement("label", {
-            lang: "en",
-            for: "text-input"
-        }, "\u8F93\u5165\u5355\u8BCD:")), React.createElement("div", null, React.createElement("input", {
-            id: "input",
-            class: "inputtext",
-            type: "text",
-            onKeyDown: clickPress,
-            placeholder: "\u8F93\u5165:"
-        })), React.createElement("div", null, React.createElement("button", {
-            id: "search",
-            class: "button",
-            onClick: getchar
-        }, "\u67E5\u8BE2")), React.createElement("div", null, React.createElement("audio", {
-            id: "audioPlayer"
-        }))))), React.createElement("div", null, React.createElement("div", {
-            class: "dictbox"
-        }, React.createElement("div", {
-            class: "translationbox"
-        }, React.createElement("div", {
-            id: "dict"
-        })), React.createElement("div", {
-            class: "phrasebox"
-        }, React.createElement("div", {
-            id: "phrases"
-        })))))
+    <div class="card-display">
+        <div class="fixhead">
+            <a><h2 class="card-title">网页词典</h2></a>
+            <div class="inputbox">
+                <div>
+                    <div><label lang="en" for="text-input">输入单词:</label></div>
+                    <div><input id="input" class="inputtext" type="text" onKeyDown={clickPress} placeholder="输入:"></input></div>
+                    <div><button id="search" class="button" onClick={getchar} >查询</button></div>
+                    <div><audio id="audioPlayer"></audio></div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="dictbox">
+                <div class="translationbox"><div id="dict"></div></div>
+                <div class="phrasebox"><div id="phrases"></div></div>
+            </div>
+        </div>
+    </div>
     )
 
 function clickPress(event){
@@ -1198,131 +1100,133 @@ async function getchar(){
 function Bishun(){
 
     const lessStyle = /* css */`
-    @font-face {
-    font-family: "pinyin";
-    font-style: normal;
-    font-weight: 100;
-    src: url('./assets/fonts/PinyinW3-Light.ttf') format('truetype');
-    }
-    .work_main {
-    display: flex;
-    max-width: 100%;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: stretch;
-    }
-    .work_main .bishun_box {
-    display: flex;
-    flex-grow: 0;
-    flex-shrink: 1;
-    justify-content: center;
-    align-items: center;
-    border: solid;
-    border-width: 1px;
-    border-radius: 20px;
-    border-color: #f19468;
-    width: 450px;
-    height: 450px;
-    margin: 20px 50px 0px 50px;
-    }
-    .work_main .input_box {
-    display: flex;
-    flex-grow: 0;
-    flex-shrink: 1;
-    justify-content: center;
-    align-items: center;
-    margin: 20px;
-    }
-    .work_main .input_box div {
-    text-align: center;
-    }
-    .work_main .input_box .inputtext {
-    border: solid;
-    border-width: 1px;
-    border-radius: 15px;
-    border-color: #f19468;
-    width: 450px;
-    font-family: "STKai";
-    font-size: 60px;
-    text-align: center;
-    margin: 10px 0px 20px 0px;
-    }
-    .work_main .input_box .button {
-    border: solid;
-    border-width: 1px;
-    border-radius: 8px;
-    width: 100px;
-    height: 50px;
-    font-family: "STKai";
-    font-size: 30px;
-    background-color: aliceblue;
-    }
-    .work_main .input_box .button:active {
-    color: grey;
-    background-color: lavenderblush;
-    }
-    .work_main .pinyin {
-    margin-left: 20px;
-    list-style: disc;
-    }
-    .work_main .pinyin .explanation {
-    margin-left: 50px;
-    list-style: square;
-    }
-    .work_main .pinyin .explanation li {
-    font-family: "pinyin", "SimSun";
-    font-size: 22px;
-    }
-    .work_main .pinyin .explanation .words {
-    margin-left: 40px;
-    list-style-position: inside;
-    }
-    .work_main .pinyin .explanation .words li {
-    list-style: circle;
-    }
-    .work_main .pinyin .explanation .words .wordbox {
-    font-family: "pinyin", "STKai";
-    font-size: 22px;
-    color: #ff1100;
-    flex-shrink: 0;
-    }
-    .work_main .pinyin .explanation .words .textbox {
-    font-family: "pinyin", "SimSun";
-    font-size: 20px;
-    }
-    .work_main .pinyin .pinyinbox {
-    font-family: "pinyin";
-    font-size: 26px;
-    color: #2f33ff;
-    }
-    #explanation {
-    margin-top: 20px;
-    }
-    @media screen and (max-width: 500px) {
-    .work_main {
-        display: block;
-    }
-    .work_main .input_box {
-        margin: 0px;
-    }
-    .work_main .input_box .inputtext {
-        width: calc(100% - 2px);
-        margin: 10px 0px 20px 0px;
-    }
-    .work_main .bishun_box {
-        width: calc(100% - 2px);
-        margin: 20px 0 0 0;
-    }
-    .work_main .pinyin .explanation {
-        margin-left: 20px;
-    }
-    .work_main .pinyin .explanation .words {
-        margin-left: 20px;
-    }
-    .goTop {
-        display: none;
-    }
-    }
+            @font-face {
+                font-family: "pinyin";
+                font-style: normal;
+                font-weight: 100;
+                src: url('./assets/fonts/PinyinW3-Light.ttf') format('truetype');
+            }
+            .work_main{
+                display: flex; 
+                max-width: 100%;
+                flex-wrap: wrap;
+                justify-content: center; 
+                align-items: stretch;
+                .bishun_box{
+                    display: flex;
+                    flex-grow: 0;
+                    flex-shrink: 1;
+                    justify-content: center;
+                    align-items: center;
+                    border: solid; 
+                    border-width: 1px;
+                    border-radius: 20px;
+                    border-color: rgb(241, 148, 104);
+                    width: 450px; 
+                    height: 450px; 
+                    margin: 20px 50px 0px 50px;
+                }
+                .input_box{
+                    display: flex;
+                    flex-grow: 0;
+                    flex-shrink: 1;
+                    justify-content: center;
+                    align-items: center;
+                    margin: 20px;
+                    div{
+                        text-align: center;
+                    }
+                    .inputtext{
+                        border: solid; 
+                        border-width: 1px; 
+                        border-radius: 15px;
+                        border-color: rgb(241, 148, 104);
+                        width:450px; 
+                        font-family: "STKai"; 
+                        font-size: 60px;
+                        text-align: center;
+                        margin: 10px 0px 20px 0px;
+                    }
+                    .button{
+                        border: solid; 
+                        border-width: 1px; 
+                        border-radius: 8px;
+                        width: 100px; 
+                        height: 50px; 
+                        font-family: "STKai"; 
+                        font-size: 30px;
+                        background-color: aliceblue;
+                        &:active{
+                            color: grey;
+                            background-color: lavenderblush;
+                        }
+                    }
+                }
+                .pinyin{
+                    margin-left: 20px;
+                    list-style: disc;
+                    .explanation{
+                        margin-left: 50px;
+                        list-style: square;
+                        li{
+                            font-family: "pinyin","SimSun";
+                            font-size: 22px;
+                        }
+                        .words{
+                            margin-left: 40px;
+                            list-style-position:inside;
+                            li{
+                                list-style: circle;
+                            }
+                            .wordbox{
+                                font-family: "pinyin","STKai";
+                                font-size: 22px;
+                                color: rgb(255, 17, 0);
+                                flex-shrink: 0;
+                            }
+                            .textbox{
+                                font-family: "pinyin","SimSun";
+                                font-size: 20px;
+                            }
+                        }
+                    }
+                    .pinyinbox{
+                        font-family: "pinyin";
+                        font-size: 26px;
+                        color: rgb(47, 51, 255);
+                    }
+                }
+            }
+
+            #explanation{
+                margin-top: 20px;		
+            }
+
+            @media screen and (max-width:500px) {
+                .work_main{
+                    display: block;
+                    .input_box {
+                        margin: 0px;
+                    }
+                    .input_box .inputtext{
+                        width: calc(100% - 2px);
+                        margin: 10px 0px 20px 0px
+                    }
+                    .bishun_box{
+                        width: calc(100% - 2px);
+                        margin: 20px 0 0 0;
+                    }
+                    .pinyin .explanation{
+                        margin-left: 20px;
+                        .words{
+                            margin-left: 20px;
+                        }
+                    }
+                }
+                .goTop{
+                    display: none;
+                }
+            }        
     `/* css */
 
     function loadJs(){
@@ -1350,36 +1254,25 @@ function Bishun(){
 
 
     return (
-        React.createElement("div", {
-            class: "card-display"
-        }, React.createElement("a", null, React.createElement("h2", {
-            class: "card-title"
-        }, "\u4E2D\u6587\u5B57\u5178")), React.createElement("div", {
-            class: "work_main"
-        }, React.createElement("div", null, React.createElement("div", {
-            class: "input_box"
-        }, React.createElement("div", null, React.createElement("div", null, React.createElement("input", {
-            id: "text-input",
-            class: "inputtext",
-            type: "text",
-            placeholder: "\u8F93\u5165\u6C49\u5B57:",
-            onKeyDown: clickPress
-        })), React.createElement("div", null, React.createElement("button", {
-            id: "animate-button",
-            class: "button",
-            onClick: showchar
-        }, "\u6F14\u793A")))), React.createElement("div", {
-            class: "bishun_box"
-            /*  ref="bishunBox" */
+    <div class="card-display">
+        <a><h2 class="card-title">中文字典</h2></a>
 
-        }, React.createElement("div", {
-            id: "character-target-div"
-        }))), React.createElement("div", {
-            style: {
-            flexBasis: '450px'
-            },
-            id: "explanation"
-        })))
+        <div class="work_main">
+                <div>
+                    <div class="input_box">
+                        <div>
+                            <div><input id="text-input"  class="inputtext" type="text" placeholder="输入汉字:" onKeyDown={clickPress} /></div>
+                            <div><button id="animate-button" class="button" onClick={showchar} >演示</button></div>
+                        </div>
+                    </div>
+                    <div class="bishun_box"/*  ref="bishunBox" */>
+                        <div id="character-target-div"></div>
+                    </div>
+                </div>
+
+                <div style={{flexBasis: '450px'}} id="explanation"></div>
+        </div>
+	</div>
     )
 
 function clickPress(event){
