@@ -30,18 +30,31 @@ function Vocabulary(){
         .work_main{
             display: block;
             text-align: center; 
-            margin-top: 13px;
+            margin-top: 15px;
             align-items: top;
             #vocHeader{
                 display: flex;
                 justify-content: left;
-                height: 20px;
+                height: 18px;
                 align-items: center;
                 #headerLabel{
+                    margin-left: 1em;
                     text-align: left;
                     width: 5em;
                     font-size: 8.5pt;
                     font-family: var(--sansSerifFont);
+                }
+                input{
+                    text-align: left;
+                    /* width: 5em; */
+                    font-size: 8.5pt;
+                    font-family: var(--sansSerifFont);
+                }
+                #fullScreenSwitcher{
+                    font-size: 8.5pt;
+                    @media(max-width: 1200px){
+                        display: none
+                    }
                 }
             }
             #wordBox {
@@ -543,13 +556,13 @@ function Vocabulary(){
         document.getElementsByClassName('work_main')[0].style.marginTop = '-0px'
         document.getElementsByClassName('card-workView')[0].style.marginTop = '0px'
 
-        document.documentElement.style.setProperty('--h2', '38px');
+        document.documentElement.style.setProperty('--h2', '35px');
     }
 
     function closeFullscreen() {
         document.getElementsByClassName('header')[0].style.display = 'block'
         document.getElementsByClassName('sidebar')[0].style.display = 'block'
-        document.getElementsByClassName('work_main')[0].style.marginTop = '13px'
+        document.getElementsByClassName('work_main')[0].style.marginTop = '15px'
         document.getElementsByClassName('card-workView')[0].style.marginTop = '20px'
 
         document.documentElement.style.setProperty('--h2', '70px');
@@ -584,9 +597,9 @@ function Vocabulary(){
     <div class="card-display">
         <div className="work_main">
             <div id="vocHeader">
+                <button id="fullScreenSwitcher" onClick={fullscreenSwitcher}>开启全屏</button>
                 <span id="headerLabel">读取词库</span>
                 <input type="file" id="fileInput" accept=".txt" onChange={readFile} />
-                <button id="fullScreenSwitcher" onClick={fullscreenSwitcher}>开启全屏</button>
             </div>
             
             <div id="wordBox">
