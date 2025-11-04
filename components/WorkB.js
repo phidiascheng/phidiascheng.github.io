@@ -565,6 +565,20 @@ function Vocabulary(){
 
     /*-----------------------------------------------------------------*/
 
+    function fullscreenSwitcher(){
+        let ele = document.getElementById("fullScreenSwitcher")
+        if(ele.innerText == "开启全屏"){
+            openFullscreen()
+            ele.innerText = "退出全屏"
+        }
+        else{
+            closeFullscreen()
+            ele.innerText = "开启全屏"
+        }
+    }
+
+    /*-----------------------------------------------------------------*/
+
 
     return (
     <div class="card-display">
@@ -572,8 +586,7 @@ function Vocabulary(){
             <div id="vocHeader">
                 <span id="headerLabel">读取词库</span>
                 <input type="file" id="fileInput" accept=".txt" onChange={readFile} />
-                <button onClick={openFullscreen}>开启全屏</button>
-                <button onClick={closeFullscreen}>退出全屏</button>
+                <button id="fullScreenSwitcher" onClick={fullscreenSwitcher}>开启全屏</button>
             </div>
             
             <div id="wordBox">
