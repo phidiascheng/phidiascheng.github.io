@@ -239,7 +239,6 @@ function Home() {
                 <img src="./data/img/aboutme.JPG" alt="Quiet" />
             </div>
         </div>
-        {/* <div className="page"><div><a href="/">[返回博客]</a></div></div> */}
     </React.Fragment>
     );
 }
@@ -275,17 +274,17 @@ function Work() {
 
             <div class="card-text">
 
-                <p><a target="blank" href="#work/bishun">汉字词典</a></p>
+                <p><a target="_blank" href="#work/bishun">汉字词典</a></p>
 
-                <p><a target="blank" href="#work/dict">单词词典</a></p>
+                <p><a target="_blank" href="#work/dict">单词词典</a></p>
 
-                <p><a target="blank" href="#work/pdfsheets">书写练习</a></p>
+                <p><a target="_blank" href="#work/pdfsheets">书写练习</a></p>
 
-                <p><a target="blank" href="#work/bishunsheet">笔顺练习</a></p>
+                <p><a target="_blank" href="#work/bishunsheet">笔顺练习</a></p>
                 
-                <p><a target="blank" href="#work/clock">时钟练习</a></p>
+                <p><a target="_blank" href="#work/clock">时钟练习</a></p>
 
-                <p><a target="blank" href="#work/vocabulary">背背单词</a></p>
+                <p><a target="_blank" href="#work/vocabulary">背背单词</a></p>
 
             </div>
 
@@ -318,19 +317,19 @@ function Schedual() {
                         display: flex;
                         justify-content: center;
                         &:first-child td{
-                            font-family: sans-serif;
+                            font-family: var(--sansSerifFont);
                         }
                         td {
                             display: flex;
                             justify-content: center;
                             text-align: center;
                             padding: 10px;
-                            font-family: serif;
+                            font-family: var(--serifFont);
                             flex: 0 0 auto;
                             width: 120px;
                             line-height: 25px;
                             span {
-                                font-family: serif;
+                                font-family: var(--serifFont);
                             }
                             .semihided{
                                 color: lightgray;
@@ -359,7 +358,7 @@ function Schedual() {
                         div {
                             display: flex;
                             justify-content: center;
-                            font-family: serif;
+                            font-family: var(--serifFont);
                             .blink {
                                 width: 6px;
                                 height: 6px;

@@ -165,10 +165,6 @@ function Header({id: id}) {
             }
     `;/* css */
 
-
-    const lessStyleForWorkView = /* css */`
-
-    `;/* css */
     
     useMemo ( () => {
         loadLessStyle (lessStyle, 'styHeader')
@@ -190,7 +186,7 @@ function Header({id: id}) {
         setSidebarShelterStyle( sidebarShelterSwitchableStyle.sidebar.width == '0' ?
             {sidebar: {width: '60%'}, shelter: {visibility: 'visible',opacity: '0.6'}} :
             {sidebar: {width: '0'}, shelter: {visibility: 'hidden',opacity: '0'}}
-         )
+        )
     }
 
 
@@ -204,7 +200,6 @@ function Header({id: id}) {
                     <HRight id={id} />
                 }
                 <HRightClose onClick={siderbarSwitcher} />
-                {/* <Test ref={sidebarRef} /> */}
             </div> 
             {
                 (id != 'WorkView') &&
@@ -221,29 +216,10 @@ function Header({id: id}) {
 // ----------------------------------------------------------------------------------------->
 
 
-/* const Test =  forwardRef((props, ref) => {
-        const [style, setStyle] = useState({color: 'blue'});
-        const testRef = useRef();
-        useImperativeHandle(ref, () => {
-            return {
-                handleClick(){
-                    setStyle({color:'red'})
-                }
-            }
-        });    
-        return <p style={style} ref={testRef}>test</p>
-    }
-) */
-
-
-// ----------------------------------------------------------------------------------------->
-
-
 function HRight({id:id}){
 
     const tags = [  {name:"首页", link:"/"}, 
                     {name:"博客 ", link:"blog"},
-                    // {name:"关于我", link:"about"}, 
                     {name:"课程表", link:"schedual"},
                     {name:"练习", link:"work"}
                 ];
@@ -375,7 +351,6 @@ function SidebarAndShelter({style:propStyle, onClick:siderbarSwitcher}){
 
     const tags = [  { label: '首页', link: '' },
                     { label: '博客', link: 'blog' },
-                    // { label: '关于我', link: 'about' },
                     { label: '课程表', link: 'schedual' },
                     { label: '练习', link: 'work' },
                 ]
@@ -393,6 +368,9 @@ function SidebarAndShelter({style:propStyle, onClick:siderbarSwitcher}){
         transition: 'opacity 0.5s ease-in-out, visibility 0.5s ease-in-out'
     }
 
+    function resetBackgroundColor(){
+        document.body.removeAttribute('style')
+    }
 
     return (
     <React.Fragment>
@@ -401,7 +379,7 @@ function SidebarAndShelter({style:propStyle, onClick:siderbarSwitcher}){
             <div className="topo"><h2>I'm Cheyenne</h2></div>
             <ul>
             {tags.map( tag => (
-                <li key={tag.link}><a href={'#'+tag.link}>{ tag.label }</a></li>
+                <li key={tag.link}><a href={'#'+tag.link} onClick={resetBackgroundColor}>{ tag.label }</a></li>
             ))}
             </ul>
             <div className="my_foot">

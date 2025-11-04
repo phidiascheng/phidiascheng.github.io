@@ -4,7 +4,7 @@ const item = {
     content : //html
     `
         <li>课程表</li>
-        <p>孩子可以在这里查看明天上什么课。</p>
+        <p>孩子可以在这里查看明天上什么课。Hello, Nice to meet you</p>
         <blockquote>
             <a class="link" target="_blank" href="#schedual">课程表</a>
         </blockquote>

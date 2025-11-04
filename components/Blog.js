@@ -9,7 +9,7 @@ export { Blog }
 // ----------------------------------------------------------------------------------------->
 
 
-function Blog({id: id}) {
+function Blog() {
 
     const [postIds,setPostIds] = useState([])
     const [postsPerPage,setPostsPerPage] = useState (0)

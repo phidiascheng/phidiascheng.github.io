@@ -12,17 +12,27 @@ import { loadLessStyle, removeElementById } from './utility.js';
 function Vocabulary(){
 
     const lessStyle = /* css */`
-        @font-face {
+        /* @font-face {
             font-family: "Courier New";
             font-style: normal;
             font-weight: 100;
             src: url('./assets/fonts/CourierNew.ttf') format('truetype');
+        } */
+        :root {
+            --h1 : 100vh;
+            --h2 : 70px;
+            --documentHeight: calc(var(--h1) - var(--h2));
+            --wordFontSize: calc((var(--h1) - var(--h2))*0.3);
+            --expFontSize: calc((var(--h1) - var(--h2))*0.13);
+            --expTextFontSize: calc((var(--h1) - var(--h2))*0.12);
+            --expMarkFontSize: calc((var(--h1) - var(--h2))*0.16);
         }
         .work_main{
             display: block;
             text-align: center; 
             margin-top: 13px;
-            #header{
+            align-items: top;
+            #vocHeader{
                 display: flex;
                 justify-content: left;
                 height: 20px;
@@ -31,17 +41,16 @@ function Vocabulary(){
                     text-align: left;
                     width: 5em;
                     font-size: 8.5pt;
-                    font-family: sans-serif;
+                    font-family: var(--sansSerifFont);
                 }
             }
             #wordBox {
                 display: block;
-                height: calc(100vh - 53px - 20px - 5px);
-                font-family: serif;
+                height: var(--documentHeight)/* calc(100vh - 50px - 20px) */;
+                font-family: var(--serifFont);
                 #word {
                     -webkit-user-select: none;
-                    height: calc((100vh - 53px - 20px - 5px)*0.3);
-                    font-size: calc((100vh - 20px - 20px - 5px)*0.28);
+                    font-size: var(--wordFontSize);
                     display: flex;
                     justify-content: center;
                     align-items: end;
@@ -52,7 +61,7 @@ function Vocabulary(){
                         color: #d62626;
                         position:relative;
                         top: 0em;
-                        font-family: serif;
+                        font-family: var(--serifFont);
                     }
                     .wordScroll {
                         display: inline-block;
@@ -65,8 +74,8 @@ function Vocabulary(){
                 }
                 .exp {
                     -webkit-user-select: none;
-                    height: calc((100vh - 53px - 20px - 5px)*0.13);
-                    font-size: calc((100vh - 53px - 20px - 5px)*0.12);
+                    height: var(--expFontSize);
+                    font-size: var(--expFontSize);
                     display: flex;
                     justify-content: left;
                     color: blue;
@@ -82,9 +91,9 @@ function Vocabulary(){
                         text-align: center;
                         min-width: 1em;
                         .optLabel{
-                            font-family: 'Courier New';
+                            font-family: var(--monospaceFont);
                             position: relative;
-                            top: -3vh;
+                            top: -3.5vh;
                         }
                     }
                     .optionText{
@@ -94,9 +103,9 @@ function Vocabulary(){
                         white-space: nowrap;
                         .optText{
                             position: relative;
-                            top: -2vh;
-                            font-family: serif;
-                            font-size: calc((100vh - 53px - 20px - 5px)*0.12);
+                            top: -3.5vh;
+                            font-family: var(--serifFont);
+                            font-size: var(--expTextFontSize);
                         }
                         .expScroll {
                             display: inline-block;
@@ -112,13 +121,13 @@ function Vocabulary(){
 /*                         mask-image: linear-gradient(90deg, transparent, black 5%); */
                     }
                     .optionMark{
-                        font-family: serif;
-                        font-size: calc((100vh - 53px - 20px - 5px)*0.16);
+                        font-family: var(--serifFont);
+                        font-size: var(--expMarkFontSize);
                         position: relative;
                         color: red;
                         display: inline-block;
-                        text-align: center;
-                        width: 0.5em;
+                        text-align: right;
+                        width: 0.9em;
                         top: -3.2vh;
                     }
                 }
@@ -140,7 +149,7 @@ function Vocabulary(){
             display: none; 
             padding: 0 3vw;
             span{
-                font-family: serif;
+                font-family: var(--serifFont);
                 font-size: 7vh;
             }
             @media (max-width:  1200px){
@@ -300,6 +309,7 @@ function Vocabulary(){
 
     function resetState(){
 
+        isAnswerChecked = false;
         document.getElementById("statistics").style.display = 'none'
         document.getElementById("wordBox").style.display = 'block'
         document.getElementById("progressBar").style.display = 'block'
@@ -381,7 +391,7 @@ function Vocabulary(){
     /*-----------------------------------------------------------------*/    
 
     function wheelListerner(event){
-        if (isFileReady){
+        if (isFileReady && !isAnswerChecked){
             if (event.deltaY > 0){
                 if( chosedAnswer > 0){
                     moveTo( chosedAnswer - 1 )
@@ -398,8 +408,9 @@ function Vocabulary(){
     /*-----------------------------------------------------------------*/    
 
     function resizeListerner(){
-        console.log('resized')
-        display()
+        if( isFileReady ){
+            display()
+        }
     }
 
     /*-----------------------------------------------------------------*/
@@ -418,7 +429,7 @@ function Vocabulary(){
     /*-----------------------------------------------------------------*/    
 
     function optionMouseMove(i){
-        if( isFileReady ){
+        if( isFileReady && !isAnswerChecked){
            moveTo(i)
         }
     }
@@ -519,13 +530,50 @@ function Vocabulary(){
 
     /*-----------------------------------------------------------------*/
 
+    function openFullscreen() {
+        if (document.documentElement.requestFullscreen) {
+            document.documentElement.requestFullscreen(); // Standard method
+        } else if (document.documentElement.webkitRequestFullscreen) {
+            document.documentElement.webkitRequestFullscreen(); // For Safari
+        } else if (document.documentElement.msRequestFullscreen) {
+            document.documentElement.msRequestFullscreen(); // For IE/Edge
+        }
+        document.getElementsByClassName('header')[0].style.display = 'none'
+        document.getElementsByClassName('sidebar')[0].style.display = 'none'
+        document.getElementsByClassName('work_main')[0].style.marginTop = '-0px'
+        document.getElementsByClassName('card-workView')[0].style.marginTop = '0px'
+
+        document.documentElement.style.setProperty('--h2', '38px');
+    }
+
+    function closeFullscreen() {
+        document.getElementsByClassName('header')[0].style.display = 'block'
+        document.getElementsByClassName('sidebar')[0].style.display = 'block'
+        document.getElementsByClassName('work_main')[0].style.marginTop = '13px'
+        document.getElementsByClassName('card-workView')[0].style.marginTop = '20px'
+
+        document.documentElement.style.setProperty('--h2', '70px');
+        
+        if (document.fullscreenElement) {
+            document.exitFullscreen(); // Standard method
+        } else if (document.webkitExitFullscreen) {
+            document.webkitExitFullscreen(); // For Safari
+        } else if (document.msExitFullscreen) {
+            document.msExitFullscreen(); // For IE/Edge
+        }
+    }
+
+    /*-----------------------------------------------------------------*/
+
 
     return (
     <div class="card-display">
         <div className="work_main">
-            <div id="header">
+            <div id="vocHeader">
                 <span id="headerLabel">读取词库</span>
                 <input type="file" id="fileInput" accept=".txt" onChange={readFile} />
+                <button onClick={openFullscreen}>开启全屏</button>
+                <button onClick={closeFullscreen}>退出全屏</button>
             </div>
             
             <div id="wordBox">

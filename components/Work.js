@@ -22,10 +22,14 @@ function Clock(){
                     border-radius: 8px;
                     width: 200px; 
                     height: 40px; 
-                    font-family: serif; 
-                    font-size: 26px;
                     margin: 20px;
                     background-color: aliceblue;
+                    span{
+                        position: relative;
+                        top: -1.5px;
+                        font-family: var(--serifFont); 
+                        font-size: 26px;
+                    }
                     &:active{
                         color: grey;
                         background-color: lavenderblush;
@@ -67,7 +71,7 @@ function Clock(){
         <a><h2 className="card-title">时钟练习</h2></a>
         <div className="work_main">
             <div>
-                <div><button className="button" id="createCalcPDFFile" onClick={createClock}>生成时钟练习</button></div>
+                <div><button className="button" id="createCalcPDFFile" onClick={createClock}><span>生成时钟练习</span></button></div>
                 <div><iframe className="pdfbox" id="pdf" style={{display: 'none'}}></iframe></div>
             </div>
         </div>
@@ -190,9 +194,9 @@ function Pdfsheets(){
                 label{
                     font-size: 20px;
                     line-height: 0px;
-                    font-family: serif;
+                    font-family: var(--serifFont);
                     span{
-                        font-family: sans-serif;
+                        font-family: var(--sansSerifFont);
                     }
                 }
                 .inputtext{
@@ -200,10 +204,11 @@ function Pdfsheets(){
                     border-width: 1px; 
                     border-radius: 15px;
                     border-color: rgb(241, 148, 104);
-                    font-family: serif; 
+                    font-family: var(--serifFont); 
                     font-size: 30px;
                     text-align: center;
                     margin: 10px 0;
+                    padding-bottom: 3px;
                 }
                 .button{
                     border: solid; 
@@ -211,10 +216,13 @@ function Pdfsheets(){
                     border-radius: 8px;
                     width: 150px; 
                     height: 30px; 
-                    font-family: serif; 
-                    font-size: 26px;
                     margin: 10px;
                     background-color: aliceblue;
+                    span{
+                        position: relative;
+                        top: -1px;
+                        font-family: var(--serifFont); 
+                    }
                     &:active{
                         color: grey;
                         background-color: lavenderblush;
@@ -276,12 +284,12 @@ function Pdfsheets(){
             <div><input class="inputtext" style={{width:'100%'}} id="text-pinyin" type="text" placeholder="拼音:" /></div>
 
             <div>
-                <button class="button" style={{fontSize: '20px'}} id="createPDFFile" onClick={createTianzige}>生成田字格</button>
-                <button class="button" style={{fontSize: '20px'}} id="createPDFFile" onClick={createYingyuge}>生成英语格</button>
-                <button class="button" style={{fontSize: '20px'}} id="createPDFFile" onClick={createPinyinge}>生成拼音格</button>
-                <button class="button" style={{fontSize: '20px'}} id="createPDFFile" onClick={createZuowenge}>生成作文格</button>
-                <button class="button" style={{fontSize: '20px'}} id="createPDFFile" onClick={createCalcpaper}>生成加减草稿纸</button>
-                <button class="button" style={{fontSize: '20px'}} id="createPDFFile" onClick={createDivpaper}>生成除法草稿纸</button>
+                <button class="button" style={{fontSize: '20px'}} id="createPDFFile" onClick={createTianzige}><span>生成田字格</span></button>
+                <button class="button" style={{fontSize: '20px'}} id="createPDFFile" onClick={createYingyuge}><span>生成英语格</span></button>
+                <button class="button" style={{fontSize: '20px'}} id="createPDFFile" onClick={createPinyinge}><span>生成拼音格</span></button>
+                <button class="button" style={{fontSize: '20px'}} id="createPDFFile" onClick={createZuowenge}><span>生成作文格</span></button>
+                <button class="button" style={{fontSize: '20px'}} id="createPDFFile" onClick={createCalcpaper}><span>生成加减草稿纸</span></button>
+                <button class="button" style={{fontSize: '20px'}} id="createPDFFile" onClick={createDivpaper}><span>生成除法草稿纸</span></button>
             </div>
             <div><iframe class="pdfbox" id="pdf" style={{display: 'none'}}></iframe></div>
 
@@ -628,7 +636,7 @@ function Bishunsheet(){
                 max-width: 100%;
                 text-align: center; 
                 .label{
-                    font-family: serif; 
+                    font-family: var(--serifFont); 
                     font-size: 30px;
                 }
                 .inputtext{
@@ -636,10 +644,11 @@ function Bishunsheet(){
                     border-width: 1px; 
                     border-radius: 15px;
                     border-color: rgb(241, 148, 104);
-                    font-family: serif; 
+                    font-family: var(--serifFont); 
                     font-size: 40px;
                     text-align: center;
                     margin: 10px 0;
+                    padding-bottom: 3px;
                 }
                 .button{
                     border: solid; 
@@ -647,10 +656,14 @@ function Bishunsheet(){
                     border-radius: 8px;
                     width: 150px; 
                     height: 40px; 
-                    font-family: serif; 
-                    font-size: 26px;
                     margin: 10px;
                     background-color: aliceblue;
+                    span{
+                        position: relative;
+                        top: -1.5px;
+                        font-family: var(--serifFont); 
+                        font-size: 26px;
+                    }
                     &:active{
                         color: grey;
                         background-color: lavenderblush;
@@ -711,7 +724,7 @@ function Bishunsheet(){
             <div class="work_main">
                 <div><label class="label" for="text-input">输入汉字 最多12个汉字</label></div>
                 <div><input class="inputtext" id="text-input" type="text" placeholder="汉字:" onKeyDown={clickPress} /></div>
-                <div><button class="button" id="createPDFFile" onClick={createHanzi}>生成笔顺</button></div>
+                <div><button class="button" id="createPDFFile" onClick={createHanzi}><span>生成笔顺</span></button></div>
                 <div id="timer"></div>
                 <div><iframe class="pdfbox" id="pdf" style={{display: 'none'}}></iframe></div>
             </div>
@@ -876,7 +889,7 @@ function Dict(){
                     text-align: center; 
                     margin-top: -30px;
                     label{
-                        font-family: serif; 
+                        font-family: var(--serifFont); 
                         font-size: 36px;
                     }
                     .inputtext{
@@ -885,9 +898,10 @@ function Dict(){
                         border-radius: 15px;
                         border-color: rgb(241, 148, 104);
                         font-size: 36px;
-                        font-family: serif;
+                        font-family: var(--serifFont);
                         text-align: center;
                         margin: 10px 0;
+                        padding-bottom: 3px;
                     }
                     .button{
                         border: solid; 
@@ -895,9 +909,13 @@ function Dict(){
                         border-radius: 8px;
                         width: 100px; 
                         height: 40px; 
-                        font-family: serif; 
-                        font-size: 28px;
                         background-color: aliceblue;
+                        span{
+                            font-family: var(--serifFont); 
+                            font-size: 28px;
+                            position: relative;
+                            top: -2.5px;
+                        }
                         &:active{
                             color: grey;
                             background-color: lavenderblush;
@@ -931,7 +949,7 @@ function Dict(){
                         border-color: rgb(241, 148, 104);
                         li{
                             list-style-type: none;
-                            font-family: serif;
+                            font-family: var(--serifFont);
                         }
                         li+li{
                             margin-top: 20px;
@@ -940,7 +958,7 @@ function Dict(){
                             font-style: italic;
                             font-size: 20px;
                             color: red;
-                            font-family: sans-serif;
+                            font-family: var(--sansSerifFont);
                         }
                     }
                 }
@@ -949,7 +967,7 @@ function Dict(){
                     ul{
                         li{
                             list-style-type: none;
-                            font-family: serif;
+                            font-family: var(--serifFont);
                         }
                         li+li{
                             margin-top: 10px;
@@ -988,7 +1006,7 @@ function Dict(){
                 <div>
                     <div><label lang="en" for="text-input">输入单词:</label></div>
                     <div><input id="input" class="inputtext" type="text" onKeyDown={clickPress} placeholder="输入:"></input></div>
-                    <div><button id="search" class="button" onClick={getchar} >查询</button></div>
+                    <div><button id="search" class="button" onClick={getchar} ><span>查询</span></button></div>
                     <div><audio id="audioPlayer"></audio></div>
                 </div>
             </div>
@@ -1145,10 +1163,11 @@ function Bishun(){
                         border-radius: 15px;
                         border-color: rgb(241, 148, 104);
                         width:450px; 
-                        font-family: serif; 
+                        font-family: var(--serifFont); 
                         font-size: 60px;
                         text-align: center;
                         margin: 10px 0px 20px 0px;
+                        padding-bottom: 6.5px;
                     }
                     .button{
                         border: solid; 
@@ -1156,9 +1175,13 @@ function Bishun(){
                         border-radius: 8px;
                         width: 100px; 
                         height: 50px; 
-                        font-family: serif; 
-                        font-size: 30px;
                         background-color: aliceblue;
+                        span{
+                            position: relative;
+                            top: -2px;
+                            font-family: var(--serifFont); 
+                            font-size: 30px;
+                        }
                         &:active{
                             color: grey;
                             background-color: lavenderblush;
@@ -1172,7 +1195,7 @@ function Bishun(){
                         margin-left: 50px;
                         list-style: square;
                         li{
-                            font-family: serif;
+                            font-family: var(--serifFont);
                             font-size: 22px;
                         }
                         .words{
@@ -1182,13 +1205,13 @@ function Bishun(){
                                 list-style: circle;
                             }
                             .wordbox{
-                                font-family: sans-serif;
-                                font-size: 22px;
+                                font-family: var(--serifFont);
+                                font-size: 20px;
                                 color: rgb(255, 17, 0);
                                 flex-shrink: 0;
                             }
                             .textbox{
-                                font-family: serif;
+                                font-family: var(--serifFont);
                                 font-size: 20px;
                             }
                         }
@@ -1265,7 +1288,7 @@ function Bishun(){
                     <div class="input_box">
                         <div>
                             <div><input id="text-input"  class="inputtext" type="text" placeholder="输入汉字:" onKeyDown={clickPress} /></div>
-                            <div><button id="animate-button" class="button" onClick={showchar} >演示</button></div>
+                            <div><button id="animate-button" class="button" onClick={showchar} ><span>演示</span></button></div>
                         </div>
                     </div>
                     <div class="bishun_box"/*  ref="bishunBox" */>

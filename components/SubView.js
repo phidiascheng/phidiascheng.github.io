@@ -22,31 +22,6 @@ function SubView( { id: id } ) {
                 font-weight: 100;
                 src: url('./assets/fonts/OpenSans-Regular.ttf') format('truetype');
             }
-            /* @font-face {
-                font-family: "SimSun";
-                font-style: normal;
-                font-weight: 100;
-                src: url('./assets/fonts/SimSun.ttf') format('truetype');
-            } */
-            /* @font-face {
-                font-family: "PingFang";
-                font-style: normal;
-                font-weight: 100;
-                src: url('./assets/fonts/PingFangSC-Regular.ttf') format('truetype');
-            } */
-            /* @font-face {
-                font-family: "STKai";
-                font-style: normal;
-                font-weight: 100;
-                src: url('./assets/fonts/STKai.ttf') format('truetype');
-            } */
-            /* @font-face {
-                font-family: "SimHei";
-                font-style: normal;
-                font-weight: 100;
-                src: url('./assets/fonts/simhei.ttf') format('truetype');
-            } */
-
             * {
                 margin: 0;
                 padding: 0;
@@ -55,6 +30,9 @@ function SubView( { id: id } ) {
                 --shadowcolor: rgba(50,50,50,0.05);
                 --hovershadowcolor:rgba(50,50,50,0.2);
                 --fontcolor: rgb(50,50,50);
+                --serifFont:  "Times New Roman", "Times", "新宋体", "宋体", "简宋", "宋体-简", "SimSun", serif;
+                --sansSerifFont: "OpenSans","Arial", "Helvetica","苹方-简", "黑体-简", "冬青黑体简体中文", "微软雅黑", "黑体", "华文黑体", sans-serif;
+                --monospaceFont: "Courier New", monospace;
             }
 
             body{
@@ -75,8 +53,9 @@ function SubView( { id: id } ) {
 
     useMemo(() => {
         loadLessStyle(lessStyle, 'stySubvue')
-        if (id == 'WorkView')
+        if (id == 'WorkView') {
             document.body.style.backgroundColor = 'white';
+        }
     },[])
 
     useEffect( () => {
@@ -84,7 +63,6 @@ function SubView( { id: id } ) {
             removeElementById('stySubvue')
         })
     },[]);
-
 
     return (
     <React.Fragment>
